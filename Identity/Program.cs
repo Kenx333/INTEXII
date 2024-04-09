@@ -76,6 +76,13 @@ builder.Services.Configure<IdentityOptions>(opts =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ProductContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ProductConnection"]);
+});
+
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
