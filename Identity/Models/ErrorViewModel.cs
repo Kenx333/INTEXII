@@ -1,4 +1,4 @@
-namespace Identity.Models
+namespace INTEXII.Models
 {
     public class ErrorViewModel
     {

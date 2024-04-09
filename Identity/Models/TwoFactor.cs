@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Identity.Models
+namespace INTEXII.Models
 {
     public class TwoFactor
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace Identity.CustomPolicy
+namespace INTEXII.CustomPolicy
 {
     public class AllowPrivatePolicy : IAuthorizationRequirement
     {
