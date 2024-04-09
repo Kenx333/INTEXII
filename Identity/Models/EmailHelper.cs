@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Identity.Models
+namespace INTEXII.Models
 {
     public class EmailHelper
     {

@@ -1,8 +1,8 @@
-﻿using Identity.Models;
+﻿using INTEXII.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Identity.CustomTagHelpers
+namespace INTEXII.CustomTagHelpers
 {
     [HtmlTargetElement("td", Attributes = "i-role")]
     public class RoleUsersTH : TagHelper

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using Identity.Models;
+using INTEXII.Models;
 
-namespace Identity.Controllers
+namespace INTEXII.Controllers
 {
     public class RoleController : Controller
     {

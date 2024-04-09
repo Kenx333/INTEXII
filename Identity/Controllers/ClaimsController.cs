@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Identity.Models;
+using INTEXII.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
-namespace Identity.Controllers
+namespace INTEXII.Controllers
 {
     [Authorize]
     public class ClaimsController : Controller
