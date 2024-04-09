@@ -1,5 +1,6 @@
 using Identity.CustomPolicy;
 using Identity.Models;
+using INTEX2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -59,6 +60,13 @@ builder.Services.Configure<IdentityOptions>(opts =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ProductContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ProductConnection"]);
+});
+
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 
 var app = builder.Build();
 
