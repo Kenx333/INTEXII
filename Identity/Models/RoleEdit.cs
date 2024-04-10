@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Identity.Models
+namespace INTEXII.Models
 {
     public class RoleEdit
     {

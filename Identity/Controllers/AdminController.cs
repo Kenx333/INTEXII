@@ -1,8 +1,8 @@
-﻿using Identity.Models;
+﻿using INTEXII.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Identity.Controllers
+namespace INTEXII.Controllers
 {
     public class AdminController : Controller
     {

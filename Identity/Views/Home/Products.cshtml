@@ -1,0 +1,61 @@
+﻿@using INTEXII.Models
+@using System.Web
+
+
+@{
+    ViewData["Title"] = "Products";
+
+    // Sample list of LEGO sets (replace with your actual data)
+    var legoSets = new List<LegoSet>
+    {
+        new LegoSet { Id = 1, Name = "LEGO City Police Station", Price = 49.99m, ImageUrl = "/images/police_station.jpg" },
+        new LegoSet { Id = 2, Name = "LEGO Star Wars Millennium Falcon", Price = 159.99m, ImageUrl = "/images/millennium_falcon.jpg" },
+        new LegoSet { Id = 3, Name = "LEGO Creator Expert Volkswagen Beetle", Price = 99.99m, ImageUrl = "/images/volkswagen_beetle.jpg" },
+        // Add more LEGO sets here...
+    };
+
+    // Paginator settings
+    var pageSize = 9; // Number of items per page
+    var currentPage = 1; // Current page number
+    var legoSetsPaginated = legoSets.Skip((currentPage - 1) * pageSize).Take(pageSize);
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Sort dropdown -->
+<div>
+    <label for="sortDropdown">Sort By:</label>
+    <select id="sortDropdown">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+    </select>
+</div>
+
+<!-- LEGO sets grid -->
+<div class="row">
+    @foreach (var legoSet in legoSetsPaginated)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@legoSet.ImageUrl" class="card-img-top" alt="@legoSet.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@legoSet.Name</h5>
+                    <p class="card-text">Price: $@legoSet.Price</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Paginator -->
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        @for (int i = 1; i <= Math.Ceiling((double)legoSets.Count / pageSize); i++)
+        {
+            <li class="page-item @(i == currentPage ? "active" : "")">
+                <a class="page-link" href="?page=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
+

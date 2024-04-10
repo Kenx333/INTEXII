@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Identity.Migrations
+namespace INTEXII.Migrations
 {
     /// <inheritdoc />
     public partial class SQLiteMigrate2 : Migration
