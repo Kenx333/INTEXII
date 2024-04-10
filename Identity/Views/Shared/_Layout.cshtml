@@ -25,7 +25,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Products" style="font-weight: bold;">Products</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ProductList" style="font-weight: bold;">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About" style="font-weight: bold;">About Us</a>
@@ -37,12 +37,15 @@
                     @* 
                         This line of code below is what is in the 414 lab, but it causes an error
                     <partial name="_LoginPartial"/>*@
-                  @*   
+                  @*   *@
                         <li class="nav-item">
-@*                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Register</a>
-                            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ShoppingCart" style="font-weight: bold;">Cart Icon</a>
+                        </li>
+                        <li class="nav-item">
+@*                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Register</a>
+ *@                            <a style="font-weight: bold;" class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
 
-                        </li>*@
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
                         </li>
