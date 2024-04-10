@@ -20,6 +20,11 @@ namespace Identity.Controllers
             return View(userManager.Users);
         }
 
+        public IActionResult Home()
+        {
+            return View();
+        }
+
         public IActionResult Create() => View();
 
         [HttpPost]
