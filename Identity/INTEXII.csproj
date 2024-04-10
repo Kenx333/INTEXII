@@ -45,7 +45,7 @@
     <None Include="Pages\_ViewImports.cshtml" />
     <None Include="Pages\_ViewStart.cshtml" />
     <None Include="Views\Shared\Components\CartSummary\Default.cshtml" />
-    <None Include="Views\Shared\Components\ProductCategories\Default.cshtml" />
+    <None Include="Views\Shared\Components\ProductCategory\Default.cshtml" />
   </ItemGroup>
 
 </Project>
