@@ -39,4 +39,13 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Pages\Cart.cshtml" />
+    <None Include="Pages\_CartLayout.cshtml" />
+    <None Include="Pages\_ViewImports.cshtml" />
+    <None Include="Pages\_ViewStart.cshtml" />
+    <None Include="Views\Shared\Components\CartSummary\Default.cshtml" />
+    <None Include="Views\Shared\Components\ProductCategories\Default.cshtml" />
+  </ItemGroup>
+
 </Project>
