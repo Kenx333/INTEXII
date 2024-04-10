@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using INTEXII.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace INTEXII.Controllers
 {
@@ -31,10 +34,6 @@ namespace INTEXII.Controllers
             return View();
         }
         public async Task<IActionResult> About()
-        {
-            return View();
-        }
-        public async Task<IActionResult> Products()
         {
             return View();
         }
