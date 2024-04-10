@@ -1,15 +1,4 @@
-﻿@model string
-
-@{
-    ViewData["Title"] = "Authentication";
-}
-
-<h1 class="bg-info text-white">Hej! Build Your Dreams, Brick by Brick.</h1>
-@Model
-
-<h1> Top picks for you: </h1>
-
-@using INTEXII.Models
+﻿@using INTEXII.Models
 @using System.Web
 
 
@@ -58,7 +47,7 @@
     }
 </div>
 
-@* <!-- Paginator -->
+<!-- Paginator -->
 <nav aria-label="Page navigation">
     <ul class="pagination">
         @for (int i = 1; i <= Math.Ceiling((double)legoSets.Count / pageSize); i++)
@@ -68,12 +57,5 @@
             </li>
         }
     </ul>
-</nav> *@
+</nav>
 
-
-
-
-@if (User?.Identity?.IsAuthenticated ?? false)
-{
-    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
-}
