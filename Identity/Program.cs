@@ -1,4 +1,4 @@
-using INTEX2.Models;
+using INTEXII.Models;
 using INTEXII.CustomPolicy;
 using INTEXII.Models;
 using Microsoft.AspNetCore.Authorization;

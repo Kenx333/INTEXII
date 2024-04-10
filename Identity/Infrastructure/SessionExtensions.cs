@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace INTEX2.Infrastructure
+namespace INTEXII.Infrastructure
 {
     public static class SessionExtensions
     {

@@ -1,8 +1,8 @@
-﻿using INTEX2.Infrastructure;
+﻿using INTEXII.Infrastructure;
 using Microsoft.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace INTEX2.Models
+namespace INTEXII.Models
 {
     public class SessionCart : Cart
     {

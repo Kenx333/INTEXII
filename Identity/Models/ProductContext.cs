@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace INTEX2.Models
+namespace INTEXII.Models
 {
     public class ProductContext : DbContext
     {
