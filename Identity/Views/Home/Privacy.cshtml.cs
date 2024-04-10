@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Identity.Views.Home;
+namespace INTEXII.Views.Home;
 
 public class Privacy : PageModel
 {
