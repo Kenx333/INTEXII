@@ -1,7 +1,11 @@
-﻿namespace INTEX2.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace INTEX2.Models
 {
     public class Product
     {
+        [Key]
+        [Required]
         public int product_ID { get; set; }
         public string name { get; set; }
         public int year { get; set; }
