@@ -3,7 +3,7 @@ using Microsoft.VisualBasic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace INTEX2.Models
+namespace INTEXII.Models
 {
     public class Order
     {

@@ -34,7 +34,7 @@ namespace INTEXII.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Products()
+        public async Task<IActionResult> ProductList()
         {
             return View();
         }
@@ -43,6 +43,10 @@ namespace INTEXII.Controllers
             return View();
         }
         public async Task<IActionResult> Register()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ShoppingCart()
         {
             return View();
         }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace INTEX2.Models
+namespace INTEXII.Models
 {
     public class Product
     {

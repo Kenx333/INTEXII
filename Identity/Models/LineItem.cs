@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace INTEX2.Models
+namespace INTEXII.Models
 {
     [PrimaryKey(nameof(transaction_ID), nameof(product_ID))]
     public class LineItem

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}@* 
+@model Products
+List<Product> products = Model.Products; // Get the list of products from the model
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Products grid -->
+<div class="row">
+    @foreach (var product in products)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@product.img_link" class="card-img-top" alt="@product.name">
+                <div class="card-body">
+                    <h5 class="card-title">@product.name</h5>
+                    <p class="card-text">Price: $@product.price</p>
+                </div>
+            </div>
+        </div>
+    }
+</div> *@
