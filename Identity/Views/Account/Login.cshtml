@@ -3,10 +3,10 @@
     ViewData["Title"] = "Login";
 }
 
-<h1 class="bg-info text-white">Login</h1>
-<div class="text-danger" asp-validation-summary="All"></div>
+@* <h1 class="bg-info text-white">Login</h1>
+ *@
   
-<form asp-action="Login" method="post">
+@* <form asp-action="Login" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="form-group">
         <label asp-for="Email"></label>
@@ -21,4 +21,106 @@
     </div>
     <button class="btn btn-primary" type="submit">Log In</button>
     <a class="btn btn-secondary" asp-action="ForgotPassword">Forgot Password</a>
-</form>
+</form> *@
+
+<div style="width: 1440px; height: 1024px; position: relative; background: white">
+    <div style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute; background: white"></div>
+@*     <div style="width: 445px; left: 0px; top: 48px; position: absolute; color: #0F1E2C; font-size: 16px; font-family: Jost; font-weight: 400; word-wrap: break-word">Please login here</div>
+ *@    <div style="left: 858px; top: 237px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex">
+        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 5px; display: flex">
+            <div style="width: 445px"><span style="color: #F3070A; font-size: 30px; font-family: Jost; font-weight: 700; word-wrap: break-word">Welcome 👋 </span><span style="color: #F3070A; font-size: 30px; font-family: Jost; font-weight: 700; word-wrap: break-word">Velkommen!</span></div>
+@*             <div style="width: 445px; color: #0F1E2C; font-size: 16px; font-family: Jost; font-weight: 400; word-wrap: break-word">Please login here</div>
+ *@        </div>
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <form asp-action="Login" method="post">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+                Remember me? <input type="checkbox" asp-for="Remember" />
+            </div>
+           
+            <button class="btn btn-primary" type="submit">Log In</button>
+            <a class="btn btn-secondary" asp-action="ForgotPassword">Forgot Password</a>
+        
+     @*    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: flex">
+            <div style="flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 16px; display: flex">
+                <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
+                    <div style="height: 80px; padding-top: 2px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 5px; display: flex">
+                        <div style="width: 445px; color: #131118; font-size: 12px; font-family: Jost; font-weight: 400; word-wrap: break-word">Email Address</div>
+                        <div style="align-self: stretch; height: 56px; padding-top: 16px; padding-bottom: 17px; padding-left: 16px; padding-right: 16px; border-radius: 10px; border: 1px #131118 solid; justify-content: center; align-items: center; display: inline-flex">
+                            <div style="width: 413px; color: #131118; font-size: 16px; font-family: Jost; font-weight: 400; word-wrap: break-word">robertfox@example.com</div>
+                        </div>
+                    </div>
+                    <div style="height: 80px; padding-top: 2px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 5px; display: flex">
+                        <div style="width: 445px; color: #131118; font-size: 12px; font-family: Jost; font-weight: 400; word-wrap: break-word">Password</div>
+                        <div style="align-self: stretch; height: 56px; padding: 16px; border-radius: 10px; border: 1px #131118 solid; justify-content: center; align-items: center; display: inline-flex">
+                            <div style="width: 413px; color: #131118; font-size: 16px; font-family: Poppins; font-weight: 400; word-wrap: break-word">••••••••••••••••••</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 150px; display: inline-flex">
+                    <div style="padding-right: 16px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                        <div style="width: 24px; height: 24px; padding: 2px; justify-content: center; align-items: center; display: flex">
+                            <div style="width: 20px; height: 20px; background: #E3000B"></div>
+                        </div>
+                        <div style="color: #131118; font-size: 16px; font-family: Jost; font-weight: 400; word-wrap: break-word">Remember Me</div>
+                    </div>
+                    <div style="flex: 1 1 0; text-align: right; color: #131118; font-size: 14px; font-family: Jost; font-weight: 400; word-wrap: break-word">Forgot Password?</div>
+                </div>
+            </div>
+            <div style="width: 445px; height: 56px; padding: 20px; background: #E3000B; border-radius: 10px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                <div style="color: white; font-size: 24px; font-family: Jost; font-weight: 400; word-wrap: break-word">Login</div>
+            </div>
+            </div> *@
+        </form>
+    </div>
+    <img style="width: 464px; height: 615px; left: 91px; top: 147px; position: absolute" src="/img/Customer_LoginPage.png" />
+    
+@*     <div style="width: 445px; height: 58px; left: 867px; top: 704px; position: absolute">
+        <div style="width: 445px; left: 0px; top: 0px; position: absolute; color: #0F1E2C; font-size: 16px; font-family: Jost; font-weight: 400; word-wrap: break-word">Login with </div>
+        <div style="width: 148px; height: 28px; left: 51px; top: 30px; position: absolute">
+            <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute">
+                <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                <div style="width: 11.17px; height: 9.03px; left: 9.03px; top: 9.94px; position: absolute; background: #F3070A"></div>
+            </div>
+            <div style="width: 28px; height: 28px; left: 40px; top: 0px; position: absolute">
+                <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: #F3070A; border-radius: 9999px"></div>
+                <div style="width: 6.32px; height: 12.17px; left: 10.84px; top: 8.13px; position: absolute; background: white"></div>
+            </div>
+            <div style="width: 28px; height: 28px; left: 80px; top: 0px; position: absolute">
+                <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                <div style="width: 13.55px; height: 13.55px; left: 7.23px; top: 7.23px; position: absolute">
+                    <div style="width: 13.55px; height: 13.55px; left: 0px; top: 0px; position: absolute; background: #F3070A"></div>
+                    <div style="width: 6.96px; height: 6.96px; left: 3.30px; top: 3.30px; position: absolute; background: #F3070A"></div>
+                    <div style="width: 1.63px; height: 1.63px; left: 9.58px; top: 2.35px; position: absolute; background: #F3070A"></div>
+                </div>
+            </div>
+            <div style="width: 28px; height: 28px; left: 120px; top: 0px; position: absolute">
+                <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                <div style="width: 12.96px; height: 12.65px; left: 8.13px; top: 7.23px; position: absolute; background: #F3070A"></div>
+            </div>
+        </div>
+    </div>
+ *@    <div style="width: 1440px; height: 88px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+        <div style="width: 1440px; height: 88px; justify-content: center; align-items: center; display: inline-flex">
+           @*  <div style="width: 1440px; height: 96px; position: relative">
+                <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 1451px; height: 96px; left: 0px; top: 0px; position: absolute; background: #E3000B"></div>
+                    <img style="width: 94px; height: 94px; left: 19px; top: 0px; position: absolute" src="https://via.placeholder.com/94x94" />
+                </div>
+                <div style="width: 133px; height: 26.40px; left: 1097px; top: 30.40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Register</div>
+                <div style="width: 107px; height: 26.40px; left: 141px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Home</div>
+                <div style="width: 161px; height: 26.40px; left: 261px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Products</div>
+                <div style="width: 161px; height: 26.40px; left: 435px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">About Us</div>
+                <div style="width: 133px; height: 26.40px; left: 1273px; top: 30.40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Login</div>
+            </div> *@
+        </div>
+    </div>
+</div>
