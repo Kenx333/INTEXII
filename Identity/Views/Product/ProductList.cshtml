@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}@*// Use the view model to pass data to the view *@
+@model INTEXII.Models.ViewModels.ProductsListViewModel 
+
+List<Product> products = Model.Products; // Get the list of products from the model
+
+<h1>@ViewData["Title"]</h1>
+
+    @foreach (Product p in Model.Products)
+    {
+        <partial name="ProductInfo" model="p" />
+    }
+
+    @*Add pagination to the app
+    so that we list out 10 books per page for as many books as are in the database. *@
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                Page:
+            </div>
+        </div>
+    </div>
+
+    <div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

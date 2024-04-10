@@ -1,0 +1,16 @@
+﻿@model Product
+
+<div class="card m-1 p-3">
+    <div class="card-body">
+        <h4 class="card-title">@Model.name</h4>
+        <ul class="list-unstyled">
+            <li><strong>Year:</strong> @Model.year</li>
+            <li><strong>Number of Parts:</strong> @Model.num_parts</li>
+            <li><strong>Price:</strong> $@Model.price</li>
+            <li><strong>Primary Color:</strong> @Model.primary_color</li>
+            <li><strong>Secondary Color:</strong> @Model.secondary_color</li>
+            <li><strong>Description:</strong> @Model.description</li>
+            <li><strong>Category:</strong> @Model.category</li>
+        </ul>
+    </div>
+</div>

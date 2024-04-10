@@ -28,7 +28,7 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 });
 
 
-//builder.Services.AddDbContext<ProductContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:TestingLocalDBConnection"]));
+builder.Services.AddDbContext<ProductContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:TestingLocalDBConnection"]));
 builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:IdentityConnection"]));
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<INTEXIIIdentityDbContext>();
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
@@ -83,10 +83,10 @@ builder.Services.Configure<IdentityOptions>(opts =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ProductContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration["ConnectionStrings:LegoConnection"]);
-});
+//builder.Services.AddDbContext<ProductContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration["ConnectionStrings:LegoConnection"]);
+//});
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 

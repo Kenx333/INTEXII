@@ -27,7 +27,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="Products" style="font-weight: bold;">Products</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="ProductList" style="font-weight: bold;">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About" style="font-weight: bold;">About Us</a>
@@ -49,9 +49,16 @@
                         </li>
                         <li class="nav-item">
 @*                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Register</a>
- *@                            <a style="font-weight: bold;" class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                             <a style="font-weight: bold;" class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> *@
+
 
                         </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register" style="font-weight: bold;">Register</a>
+                            </li>
+                            @* <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
+                            </li> *@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
                         </li>

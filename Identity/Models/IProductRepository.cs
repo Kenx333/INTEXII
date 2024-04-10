@@ -1,6 +1,6 @@
 ﻿namespace INTEXII.Models
 {
-    public class IProductRepository
+    public interface IProductRepository
     {
         public IQueryable<Product> Products { get; }
         public IQueryable<Order> Orders { get; }

@@ -16,7 +16,7 @@ namespace INTEXII.Controllers
             _repo = temp;
         }
 
-        public IActionResult Products(int pageNum, string? productCategory)
+        public IActionResult ProductList(int pageNum, string? productCategory)
         {
             int pageSize = 5;
             var products = new ProductsListViewModel
