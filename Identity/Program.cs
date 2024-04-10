@@ -1,5 +1,6 @@
 using INTEXII.Models;
 using INTEXII.CustomPolicy;
+using INTEXII.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,14 @@ using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("INTEXIIIdentityDbContextConnection") ?? throw new InvalidOperationException("Connection string 'INTEXIIIdentityDbContextConnection' not found.");
+
+builder.Services.AddRazorPages();
+
+builder.Services.AddDistributedMemoryCache();
+
+//builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+builder.Services.AddSingleton<IHttpContextAccessor,
+    HttpContextAccessor>();
 
 var services = builder.Services;
 var configuration = builder.Configuration;
