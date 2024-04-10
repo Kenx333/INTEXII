@@ -1,6 +1,5 @@
 using INTEXII.Models;
 using INTEXII.CustomPolicy;
-using INTEXII.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,8 +18,9 @@ services.AddAuthentication().AddGoogle(googleOptions =>
     googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
 });
 
-builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 
+//builder.Services.AddDbContext<ProductContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:TestingLocalDBConnection"]));
+builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:IdentityConnection"]));
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<INTEXIIIdentityDbContext>();
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(10));
