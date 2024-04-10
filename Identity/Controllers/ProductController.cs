@@ -16,6 +16,26 @@ namespace INTEXII.Controllers
             _repo = temp;
         }
 
+        public IActionResult ShoppingCart()
+        {
+            return View();
+        }
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+         
+
+        //public IActionResult ProductDetail(int id)
+        //{
+        //    var product = _repo.Products
+        //        .Include(x => x.LineItems)
+        //        .FirstOrDefault(x => x.productID == id);
+
+        //    return View(product);
+        //}
+
         public IActionResult ProductList(int pageNum, string? productCategory)
         {
             int pageSize = 5;
