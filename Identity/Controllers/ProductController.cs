@@ -38,5 +38,17 @@ namespace INTEXII.Controllers
 
             return View(products);
         }
+
+        public IActionResult ProductDetails(int id)
+        {
+            var product = _repo.Products.FirstOrDefault(p => p.product_ID == id);
+            if (product == null)
+            {
+                return NotFound(); // Returns a 404 Not Found error if the product with the specified ID is not found.
+            }
+            return View(product); // Assumes you have a view named "ProductDetails.cshtml" to display the product details.
+        }
+
+
     }
 }
