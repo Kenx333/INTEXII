@@ -8,11 +8,13 @@ using INTEXII.Models.ViewModels;
 namespace INTEXII.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-model")]
+    
+    //create the PaginationTagHelper class that inherits from the TagHelper class
     public class PaginationTagHelper : TagHelper
     {
         private IUrlHelperFactory urlHelperFactory;
-
-        public PaginationTagHelper (IUrlHelperFactory temp)
+        // constructor
+        public PaginationTagHelper(IUrlHelperFactory temp)
         {
             urlHelperFactory = temp;
         }
@@ -22,6 +24,14 @@ namespace INTEXII.Infrastructure
         public ViewContext? ViewContext { get; set; }
         public string? PageAction { get; set; }
         public PaginationInfo PageModel { get; set; }
+
+        public bool PageClassesEnabled { get; set; } = false;
+        public string PageClass { get; set; } = String.Empty;
+        public string PageClassNormal { get; set; } = String.Empty;
+        public string PageClassSelected { get; set; } = String.Empty;
+
+
+        //override the Process method
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if (ViewContext != null && PageModel != null)
@@ -30,12 +40,19 @@ namespace INTEXII.Infrastructure
 
                 TagBuilder result = new TagBuilder("div");
 
-                for (int i=1; i <= PageModel.TotalNumPages; i++) 
+
+                for (int i = 1; i <= PageModel.TotalNumPages; i++)
                 {
                     TagBuilder tag = new TagBuilder("a");
-                    tag.Attributes["href"] = urlHelper.Action(PageAction, new {pageNum = i});
-                    tag.InnerHtml.Append(i.ToString());
+                    tag.Attributes["href"] = urlHelper.Action(PageAction, new { pageNum = i });
 
+                    if (PageClassesEnabled)
+                    {
+                        tag.AddCssClass(PageClass);
+                        tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }   
+
+                    tag.InnerHtml.Append(i.ToString());
                     result.InnerHtml.AppendHtml(tag);
                 }
 

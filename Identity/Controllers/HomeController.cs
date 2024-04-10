@@ -45,5 +45,9 @@ namespace INTEXII.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> ShoppingCart()
+        {
+            return View();
+        }
     }
 }
