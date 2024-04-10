@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #E3000B;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Identity</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: white; font-weight: bold;">Brickwell Logo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,12 +20,60 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Secured Page</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Products" style="font-weight: bold;">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About" style="font-weight: bold;">About Us</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    @*
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-#E3000B border-bottom box-shadow mb-3" style="background-color: #E3000B;">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Brickwell Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Register</a>
+                        </li>
+                       
+
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/">Login</a>
                         </li>
-                        <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">All User</a>
                         </li>
                         <li class="nav-item">
@@ -51,23 +99,44 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Claims" asp-action="PrivateAccess">Private Accesss</a>
-                        </li>
+                        </li> *@
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: #E3000B;">
         <div class="container">
-            &copy; 2022 - Identity - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                <a href="#" style="margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="margin-right: 10px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 10px;">
+                <a href="#" style="margin-right: 10px;">FAQ</a>
+                <span>|</span>
+                <a href="#" style="margin-left: 10px;">Products</a>
+                <!-- Add more links as needed -->
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-white" style="margin-right: 10px; font-weight: bold;">Brickwell &copy; 2024 | All Rights Reserved</span>
+               @*  <span>
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy" style=" font-weight: bold;">Privacy Policy</a>
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About" style="font-weight: bold;">About Us</a>
+                </span> *@
+            </div>
         </div>
     </footer>
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

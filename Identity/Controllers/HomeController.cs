@@ -13,18 +13,38 @@ namespace INTEXII.Controllers
             userManager = userMgr;
         }
 
-        [Authorize]
-        //[Authorize(Roles = "Manager")]
-        public async Task<IActionResult> Index()
-        {
-            AppUser user = await userManager.GetUserAsync(HttpContext.User);
-            string message = "Hello " + user.UserName;
-            return View((object)message);
-        }
+        //[Authorize]
+        ////[Authorize(Roles = "Manager")]
+        //public async Task<IActionResult> Index()
+        //{
+        //    AppUser user = await userManager.GetUserAsync(HttpContext.User);
+        //    string message = "Hello " + user.UserName;
+        //    return View((object)message);
+        //}
 
         public async Task<IActionResult> Privacy()
         {
-            return View(Privacy);
+            return View();
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View();
+        }
+        public async Task<IActionResult> About()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Products()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Login()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Register()
+        {
+            return View();
         }
     }
 }
