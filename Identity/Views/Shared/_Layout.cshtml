@@ -40,9 +40,6 @@
                         This line of code below is what is in the 414 lab, but it causes an error
                     <partial name="_LoginPartial"/>*@
 
-                    <div class="col-6 navbar-text text-end">
-                        <vc:cart-summary />
-                    </div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ShoppingCart" style="font-weight: bold;">Cart Icon</a>
@@ -63,6 +60,9 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
                         </li>
                     </ul>  
+                </div>
+                <div class="col-6 navbar-text text-end">
+                    <vc:cart-summary />
                 </div>
             </div>
         </nav>
@@ -109,15 +109,10 @@
         </nav>
     </header>
     
-    <div class="row m-1 p-1">
-        <div class="col-3">
-            <vc:project-types />
-        </div>
-        <div class="container col-9">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+    <div class="container col-9">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
     <footer class="border-top footer text-muted" style="background-color: black;">
         <div class="container">
