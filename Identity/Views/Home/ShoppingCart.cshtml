@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<h1>Shopping Cart</h1>
+
+@if (Model.CartItems.Count > 0)
+{
+    <table class="table">
+        <!-- Table headers -->
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table body -->
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <!-- Product details -->
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.Price * item.Quantity)</td>
+                    <!-- Remove button -->
+                    <td>
+                        <form asp-action="RemoveFromCart" asp-controller="Cart" method="post">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Total -->
+    <div class="text-right">
+        <strong>Total: @Model.Total</strong>
+    </div>
+    <!-- Proceed to checkout button -->
+    <div class="text-center mt-3">
+        <a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+}
+else
+{
+    <!-- Empty cart message -->
+    <p>Your shopping cart is empty.</p>
 }
