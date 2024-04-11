@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+<header>
+    <meta name="viewport" content="width-device-width" />
+    <title>Admin</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</header>
+<body>
+    @*
+    <div class="NaviTopBar" style="width: 1440px; height: 120px; left: -10px; top: -1px; position: absolute">
+    <div class="NaviBar" style="width: 1440px; height: 120px; left: 0px; top: 0px; position: absolute">
+    <div class="Frame427320601" style="width: 1440px; height: 120px; left: 0px; top: 0px; position: absolute">
+    <div class="Rectangle1" style="width: 1440px; height: 120px; left: 0px; top: 0px; position: absolute; background: black"></div>
+    <div class="Rectangle2" style="width: 1440px; height: 120px; left: 0px; top: 0px; position: absolute; background: black"></div>
+    </div>
+    <div class="HelloAdminUser" style="left: 1026px; top: 42px; position: absolute; color: white; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">Hello! Admin User</div>
+    <div class="Home" style="width: 107px; height: 33px; left: 141px; top: 40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Home</div>
+    <div class="Products" style="width: 161px; height: 33px; left: 261px; top: 40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Products</div>
+    <div class="Customers" style="left: 435px; top: 40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Customers</div>
+    <div class="Orders" style="left: 637px; top: 40px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Orders</div>
+    <div class="LogOut" style="left: 1251px; top: 37px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">|   Log out</div>
+    <img class="Logo3" style="width: 94px; height: 94px; left: 21px; top: 0px; position: absolute" src="https://via.placeholder.com/94x94" />
+    </div>
+    </div>
+    *@
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #000000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: white; font-weight: bold;">
+                <img src="/img/logo.png" alt="brickwell logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Home" style="font-weight: bold;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="ProductList" style="font-weight: bold;">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="CustomerList" style="font-weight: bold;">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="OrderList" style="font-weight: bold;">Orders</a>
+                    </li>
+                </ul>
+                @*
+                This line of code below is what is in the 414 lab, but it causes an error
+                <partial name="_LoginPartial"/>*@
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="m-1 p-1">
+        @RenderSection("Styles", required: false)
+    </div>
+
+
+    @*
+
+    <div class="ButtomBar" style="width: 1486px; height: 224px; left: -37px; top: 1548px; position: absolute">
+    <div class="Button" style="width: 1486px; height: 3680px; left: 28.89px; top: 0px; position: absolute">
+    <div class="BottonBar" style="width: 1440px; height: 214px; left: 0px; top: 0px; position: absolute">
+    <div class="Rectangle155" style="width: 1440px; height: 38px; left: 0px; top: 183px; position: absolute; background: black"></div>
+    <div class="PrivacyPolicyIAboutUs" style="width: 171px; height: 18px; left: 1217px; top: 190px; position: absolute"></div>
+    <div class="20002021AllRightsReserved" style="width: 276px; height: 11.08px; left: 33px; top: 190px; position: absolute; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Birckwell © 2024, All Rights Reserved</div>
+    </div>
+    </div>
+    </div>
+    *@
+
+    <div class="ButtomBar" style="width: 1438px; height: 214px; left: 0px; top: 1181px; position: absolute">
+        <div class="Button" style="width: 1438px; height: 3515.71px; left: 0px; top: 0px; position: absolute">
+            <div class="BottonBar" style="width: 1440px; height: 214px; left: 0px; top: 0px; position: absolute">
+                <div class="Rectangle155" style="width: 1440px; height: 38px; left: 0px; top: 183px; position: absolute; background: black"></div>
+                <div class="PrivacyPolicyIAboutUs" style="width: 171px; height: 18px; left: 1217px; top: 190px; position: absolute"></div>
+                <div class="20002021AllRightsReserved" style="width: 276px; height: 11.08px; left: 33px; top: 190px; position: absolute; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Birckwell © 2024, All Rights Reserved</div>
+            </div>
+        </div>
+</body>
+</html>

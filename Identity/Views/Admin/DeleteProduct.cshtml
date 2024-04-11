@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product 
+
+
+<div class="DeleteConfirmation" style="width: 1349px; height: 504px; position: relative; background: white">
+
+    <div class="YouWantToDeleteThisProduct" style="left: 38px; top: 33px; position: absolute; color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; word-wrap: break-word">You want to delete this product?</div>
+
+
+   
+       
+
+
+
+    <div class="OneProductCard" style="width: 1309px; height: 293px; left: 14px; top: 104px; position: absolute; justify-content: center; align-items: flex-start; display: inline-flex">
+        <div class="ProductProfile" style="width: 327.25px; height: 293px; position: relative">
+            <img class="Download1" style="width: 272.21px; height: 228.68px; left: 20.02px; top: 29.09px; position: absolute" src="https://via.placeholder.com/272x229" />
+            <div class="Rectangle160" style="width: 327.25px; height: 293px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="ProductDetailsCard" style="width: 981.75px; height: 293px; position: relative">
+            <div class="Rectangle160" style="width: 981.75px; height: 293px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+            <div class="ProductInfoCard" style="width: 205.74px; height: 111.42px; left: 42.03px; top: 17.87px; position: absolute">
+                <div class="ProductName" style="width: 128.97px; height: 21.94px; left: 0px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Product name</div>
+                <div class="120" style="width: 62.05px; height: 25.01px; left: -0px; top: 31.48px; position: absolute; color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
+                <div class="CategoryStartwar" style="width: 205.74px; height: 14.62px; left: 0px; top: 96.80px; position: absolute; color: #212427; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Category: StartWar<br /></div>
+                <div class="NumberOfPart2222" style="width: 205.74px; height: 14.62px; left: 0px; top: 70.27px; position: absolute; color: #212427; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Number of Part: 2222</div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="product_ID" />
+    
+        <div class="Delete" style="width: 128px; height: 48px; left: 958px; top: 435px; position: absolute">
+            <div class="Rectangle212" style="width: 128px; height: 48px; left: 0px; top: 0px; position: absolute; background: rgba(161.06, 65.90, 67.11, 0.59); border-radius: 5px; border: 0.73px rgba(161.06, 65.90, 67.11, 0.59) solid"></div>
+            <button type="submit" class="Delete" style="left: 34.28px; top: 12.54px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</button>
+        </div>
+
+        <div class="CanvelButton" style="width: 132px; height: 48.37px; left: 1137px; top: 435px; position: absolute">
+        <div class="Rectangle212" style="width: 132px; height: 48.37px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+            <a class="Cancel" style="width: 85px; height: 28px; left: 25px; top: 11px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word" 
+            asp-controller="Admin" asp-action="ProductList">Cancel</a>
+            <div class="Cancel" style="">Cancel</div>
+        </div>
+
+    </form>
+</div>

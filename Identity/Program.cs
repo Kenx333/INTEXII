@@ -81,6 +81,8 @@ builder.Services.AddDbContext<ProductContext>(options =>
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 
+// Build the server for the razor page
+builder.Services.AddRazorPages();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -102,5 +104,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapRazorPages();
 app.Run();

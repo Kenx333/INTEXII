@@ -1,5 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
-
+using Microsoft.EntityFrameworkCore;
 namespace INTEXII.Models
 {
     public class EFProductRepository : IProductRepository
@@ -13,5 +13,22 @@ namespace INTEXII.Models
         public IQueryable<Order> Orders => _context.Orders;
         public IQueryable<Customer> Customers => _context.Customers;
         public IQueryable<LineItem> LineItems => _context.LineItems;
+
+        public void AddProduct(Product product)
+        {
+            _context.Add(product);
+            _context.SaveChanges();
+        }
+        public void UpdateProduct(Product product)
+        {
+            _context.Update(product);
+            _context.SaveChanges();
+        }
+
+        public void RemoveProduct(Product product)
+        {
+            _context.Remove(product);
+            _context.SaveChanges();
+        }
     }
 }

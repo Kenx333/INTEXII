@@ -1,6 +1,8 @@
 ﻿using INTEXII.Models;
+using INTEXII.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Evaluation;
 
 namespace INTEXII.Controllers
 {
@@ -8,7 +10,7 @@ namespace INTEXII.Controllers
     {
         private UserManager<AppUser> userManager;
         private IPasswordHasher<AppUser> passwordHasher;
-
+        private IProductRepository _productRepository;
         public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHash)
         {
             userManager = usrMgr;
@@ -17,13 +19,83 @@ namespace INTEXII.Controllers
 
         public IActionResult Index()
         {
-            return View(userManager.Users);
+            return View();  
         }
 
-        public IActionResult Home()
+        public IActionResult Home(int pageNum, string? categoryType)
+        {
+            //int pageSize = 6;
+            //var pagination = new ProductsListViewModel
+            //{
+            //    Products = _productRepository.Products
+            //    .OrderBy(x => x.product_ID)
+            //    .Skip((pageNum - 1) * pageSize)
+            //    .Take(pageSize),
+            //    PaginationInfo = new PaginationInfo
+            //    {
+            //        CurrentPage = pageNum,
+            //        ItemsPerPage = pageSize,
+            //        TotalItems = categoryType == null ? _productRepository.Products.Count() : _productRepository.Products.Where(x => x.category == categoryType).Count()
+            //    },
+            //    CurrentCategory = categoryType
+            //};
+
+            //return View(pagination);
+            return View("Home");
+        }
+
+        public IActionResult ProductList ()
         {
             return View();
         }
+        public IActionResult OrderList()
+        {
+            return View();
+        }
+
+        public IActionResult CustomerList()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditProduct(int id)
+        {
+            var taskToEdit = _productRepository.Products
+                .Single(t => t.product_ID == id);
+
+            return View("AddProduct", taskToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(Product updatedProduct)
+        {
+            if (ModelState.IsValid)
+            {
+                _productRepository.UpdateProduct(updatedProduct);
+                return RedirectToAction("ProductList");
+            }
+            else
+            //invalid - return the form with the data the user entered
+
+            {
+                var product = _productRepository.Products
+                    .OrderBy(x => x.product_ID)
+                    .ToList();
+                return View("AddProduct", updatedProduct);
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult DeleteProduct(int id)
+        {
+            var deleteRecord = _productRepository.Products
+                .Single(x => x.product_ID == id);
+            _productRepository.RemoveProduct(deleteRecord);
+            return View("ProductList");
+        }
+
 
         public IActionResult Create() => View();
 
