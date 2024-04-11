@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Admin_Customer List";
+    Layout = "_AdminLayout";
+}
+@model IEnumerable<Customer>
+
+<h1 class="title" style="color: #A14243; ">
+    All Customers
+</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@Html.Raw(TempData["SuccessMessage"])");
+        };
+    </script>
+}
+<div class="container-fluid container" style="left :auto">
+    <div class="row">
+
+        <div class="col-1 ">
+        </div>
+        <div class="col-2 ">
+            <div class="filterBy">
+                <div class="filterBy-icon"></div>
+                Filter by
+            </div>
+        </div>
+        <div class="col-2 ">
+
+            <div class="sortBy">
+                <div class="sortBy-icon"></div>
+                Sort By: Price Low to High
+            </div>
+        </div>
+        <div class="col-5 ">
+        </div>
+        <div class="col-1 ">
+            <div class="addButton">
+                Add
+            </div>
+        </div>
+        <div class="col-1 ">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table>
+        <theard class="fw-bold">
+            <tr>
+
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birth Date</th>
+                <th>Country of Residence</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </theard>
+        @foreach (var x in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@x.customer_ID</td>
+                    <td>@x.first_name </td>
+                    <td>@x.last_name </td>
+                    <td>@x.gender </td>
+                    <td>@x.age </td>
+                    <td>@x.birth_date </td>
+                    <td>@x.country_of_residence </td>
+                    <td>
+                        <a class="btn btn-info" asp-controller="Admin" asp-action="EditCustomer" asp-route-id="@x.customer_ID" class="delete-button"
+                           style="border-radius: 5px;
+                    border: 1px solid #EAEAEA;
+                    background: #F0F0F0;">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteCustomer" asp-route-id="@x.customer_ID" class="delete-button" style="color: white;">Delete</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+
+@* 
+
+<div class="AdminCustomerListPage" style="width: 1421px; height: 953px; position: relative; background: white">
+
+    <img class="Level1" style="width: 78.10px; height: 50px; left: 1282px; top: 821px; position: absolute" src="https://via.placeholder.com/78x50" />
+    <div class="AllCustomers" style="left: 68px; top: 173px; position: absolute; color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; word-wrap: break-word">All Customers</div>
+    <div class="Group28" style="width: 69px; height: 41px; left: 1168px; top: 362px; position: absolute">
+        <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+        <div class="Edit" style="left: 13px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Edit</div>
+    </div>
+    <div class="Group25" style="width: 69px; height: 41px; left: 1268px; top: 231px; position: absolute">
+        <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+        <div class="Add" style="left: 15px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Add</div>
+    </div>
+    <div class="Group18" style="width: 69px; height: 41px; left: 1280px; top: 361px; position: absolute">
+        <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: rgba(161.06, 65.90, 67.11, 0.59); border-radius: 5px; border: 0.73px rgba(161.06, 65.90, 67.11, 0.59) solid"></div>
+        <div class="Delete" style="left: 5px; top: 9px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</div>
+    </div>
+    <div class="Group42" style="width: 121.40px; height: 41.24px; left: 68px; top: 243px; position: absolute">
+        <div class="Rectangle210" style="width: 121.40px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+        <div class="FilterBy" style="left: 53.10px; top: 14.12px; position: absolute; color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">Filter by</div>
+        <div class="MiFilter" style="width: 24px; height: 24px; padding-left: 4px; padding-right: 4px; padding-top: 3px; padding-bottom: 3px; left: 19.18px; top: 8.62px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div class="Vector" style="width: 16px; height: 18px; background: #A14243"></div>
+        </div>
+    </div>
+    <div class="SortBy" style="width: 210.53px; height: 41.24px; left: 221px; top: 243px; position: absolute">
+        <div class="Rectangle211" style="width: 210.53px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+        <div class="SortByIdLowToHigh" style="left: 43.28px; top: 14.12px; position: absolute"><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">Sort By:  </span><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 300; word-wrap: break-word">ID Low to High</span></div>
+        <div class="MiFilter" style="width: 24px; height: 24px; padding-left: 4px; padding-right: 4px; padding-top: 3px; padding-bottom: 3px; left: 9.35px; top: 8.62px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div class="Vector" style="width: 16px; height: 18px; background: #A14243"></div>
+        </div>
+        <div class="FeArrowUp" style="width: 14px; height: 14px; padding-left: 2.33px; padding-right: 2.33px; padding-top: 4.08px; padding-bottom: 4.08px; left: 203.18px; top: 28.12px; position: absolute; transform: rotate(-180deg); transform-origin: 0 0; justify-content: center; align-items: center; display: inline-flex">
+            <div class="Vector" style="width: 9.33px; height: 5.83px; background: black"></div>
+        </div>
+    </div>
+    <div class="Rectangle169" style="width: 149px; height: 46px; left: 64px; top: 344px; position: absolute; border: 3px #F0F0F0 solid"></div>
+    <div class="Tableheaderrow" style="width: 1305px; height: 46px; left: 64px; top: 298px; position: absolute">
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 0px; top: 0px; position: absolute">
+            <div class="CustomerId" style="left: 19px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Customer ID</div>
+            <div class="Rectangle213" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 291px; top: 0px; position: absolute">
+            <div class="LastName" style="left: 27px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Last Name</div>
+            <div class="Rectangle215" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 946px; top: 0px; position: absolute">
+            <div class="Age" style="left: 57px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Age</div>
+            <div class="Rectangle215" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 214px; height: 46px; left: 1091px; top: 0px; position: absolute">
+            <div class="EditDelete" style="left: 25px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Edit/Delete</div>
+            <div class="Rectangle215" style="width: 214px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 801px; top: 0px; position: absolute">
+            <div class="Gender" style="left: 42px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Gender</div>
+            <div class="Rectangle215" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 222px; height: 46px; left: 582px; top: 0px; position: absolute">
+            <div class="CountryOfResidence" style="left: 14px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Country of Residence</div>
+            <div class="Rectangle215" style="width: 222px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 436px; top: 0px; position: absolute">
+            <div class="BirthDate" style="left: 31px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Birth date</div>
+            <div class="Rectangle215" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div class="Oneheadercell" style="width: 149px; height: 46px; left: 145px; top: 0px; position: absolute">
+            <div class="FirstName" style="left: 26px; top: 13px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">First Name</div>
+            <div class="Rectangle214" style="width: 149px; height: 46px; left: 0px; top: 46px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        </div>
+    </div>
+    <div class="TableOneRow" style="width: 1305px; height: 76px; left: 64px; top: 343px; position: absolute">
+        <div class="Group30" style="width: 112px; height: 38px; left: 19px; top: 21.48px; position: absolute">
+            <div class="Text" style="width: 112px; height: 38px; left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word"> </div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 39px; top: 14.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle169" style="width: 149px; height: 76px; left: -0px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Rectangle213" style="width: 149px; height: 76px; left: -0px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Group34" style="width: 97px; height: 38px; left: 318px; top: 21.48px; position: absolute">
+            <div class="Lindsey" style="width: 97px; height: 38px; left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Lindsey</div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 31px; top: 14.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle215" style="width: 149px; height: 76px; left: 291px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Group34" style="width: 38.97px; height: 38px; left: 1003px; top: 21.48px; position: absolute">
+            <div style="width: 36px; height: 38px; left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">25</div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 1px; top: 14.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle215" style="width: 149px; height: 76px; left: 946px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Frame909" style="width: 51px; height: 33.04px; left: 1149px; top: 21.48px; position: absolute"></div>
+        <div class="Rectangle215" style="width: 214px; height: 76px; left: 1091px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Group34" style="width: 66px; height: 38px; left: 843px; top: 21.48px; position: absolute">
+            <div class="Female" style="width: 66px; height: 38px; left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Female</div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 16px; top: 14.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle215" style="width: 149px; height: 76px; left: 801px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Group34" style="width: 194px; height: 38px; left: 596px; top: 21.48px; position: absolute">
+            <div class="Usa" style="width: 194px; height: 38px; left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">USA</div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 80px; top: 14.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle215" style="width: 222px; height: 76px; left: 582px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Group34" style="width: 119px; height: 25.04px; left: 452px; top: 29.48px; position: absolute">
+            <div class="0919999" style="left: 0px; top: 0px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">09/09/19999</div>
+            <div class="Frame909" style="width: 37.97px; height: 18.58px; left: 42px; top: 6.46px; position: absolute"></div>
+        </div>
+        <div class="Rectangle215" style="width: 149px; height: 76px; left: 436px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div class="Joe" style="width: 99px; height: 38px; left: 171px; top: 21.48px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Joe</div>
+        <div class="Rectangle214" style="width: 149px; height: 76px; left: 145px; top: 76px; position: absolute; border: 3px #F0F0F0 solid"></div>
+        <div style="left: 52px; top: 29px; position: absolute; text-align: center; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">0001</div>
+    </div>
+  
+</div>
+ *@
+ <style>
+     .container{
+        width: 100%; /* Adjust this as needed to fit your page layout */
+        max-width: 1200px; /* Maximum width of the container */
+        margin: auto; /* Center the container */
+     }
+ </style>

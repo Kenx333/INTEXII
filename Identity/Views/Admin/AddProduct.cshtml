@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Admin_Add Product";
+    Layout = "_AdminLayout";
+}
+@model Product
+
+<form method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="text-danger">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+    }
+
+    <div asp-validation-summary="All" class="text-danger">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+
+    <br />
+
+    <label asp-for="img_link">Product Photos(link)</label>
+    <input asp-for="img_link" />
+    <br />
+    <br />
+
+    <input type="hidden" asp-for="product_ID" />
+    <label asp-for="name">Product Name</label>
+    <input asp-for="name" />
+    <br />
+    <br />
+
+
+    <label asp-for="year">Year</label>
+    <input asp-for="year" />
+    <br />    <br />
+
+
+    <label asp-for="num_parts">Number of Parts</label>
+    <input asp-for="num_parts" />
+    <br />    <br />
+
+
+    <label asp-for="price">Price</label>
+    <input asp-for="price" />
+    <br />    <br />
+
+
+    <label asp-for="category">Category</label>
+    <input asp-for="category" />
+    <br />    <br />
+
+
+    <label asp-for="primary_color">Primary Color</label>
+    <input asp-for="primary_color" />
+    <br />    <br />
+
+
+    <label asp-for="secondary_color">Secondary Color</label>
+    <input asp-for="secondary_color" />
+    <br />    <br />
+
+
+    <label asp-for="description">Description</label>
+    <input asp-for="description" />
+    <br />    <br />
+
+
+
+    <button type="submit">Save</button>
+
+</form>

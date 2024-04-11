@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using System.Configuration;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("INTEXIIIdentityDbContextConnection") ?? throw new InvalidOperationException("Connection string 'INTEXIIIdentityDbContextConnection' not found.");
@@ -90,6 +91,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 
+// Build the server for the razor page
+builder.Services.AddRazorPages();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -107,9 +110,11 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapControllerRoute("pagination", "{pageNum}", new { controller = "Home", Action = "Index", pageNum = 1 });
+app.MapControllerRoute("pagination", "{pageNum}", new { controller = "Admin", Action = "Home", pageNum = 1 });
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapRazorPages();
 app.Run();
