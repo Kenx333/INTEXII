@@ -1,17 +1,61 @@
 ﻿@model Product
 
-<div class="card m-1 p-3">
-    <div class="card-body">
-        <h4 class="card-title">@Model.name</h4>
-        <ul class="list-unstyled">
-            <li><strong>Year:</strong> @Model.year</li>
-            <li><strong>Number of Parts:</strong> @Model.num_parts</li>
-            <li><strong>Price:</strong> $@Model.price</li>
-            <li><strong>Primary Color:</strong> @Model.primary_color</li>
-            <li><strong>Secondary Color:</strong> @Model.secondary_color</li>
-            <li><strong>Description:</strong> @Model.description</li>
-            <li><strong>Category:</strong> @Model.category</li>
-        </ul>
+<div style="width: 100%; display: flex; justify-content: center;">
+    <div style="width: 80%; display: flex; justify-content: space-between;">
+        <div style="width: 45%;">
+            <img style="width: 100%;" src="@Model.img_link" />
+        </div>
+        <div style="width: 45%; display: flex; flex-direction: column;">
+            <div style="color: black; font-size: 24px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.72px; word-wrap: break-word;">@Model.name</div>
+            <div style="width: 230px; color: black; font-size: 16px; font-family: Roboto; font-weight: 400; word-wrap: break-word;">@Model.year</div>
+            <div style="color: #F3070A; font-size: 24px; font-family: Inter; font-weight: 400; line-height: 24px; letter-spacing: 0.72px; word-wrap: break-word;">$@Model.price</div>
+            <div style="width: 230px; color: black; font-size: 16px; font-family: Roboto; font-weight: 400; word-wrap: break-word;">Number of parts: @Model.num_parts</div>
+            <div style="width: 230px; color: black; font-size: 16px; font-family: Roboto; font-weight: 400; word-wrap: break-word;">Primary Color: @Model.primary_color</div>
+            <div style="width: 230px; color: black; font-size: 16px; font-family: Roboto; font-weight: 400; word-wrap: break-word;">Secondary Color: @Model.secondary_color</div>
+            <div style="width: 230px; color: black; font-size: 16px; font-family: Roboto; font-weight: 400; word-wrap: break-word;">Category: @Model.category</div>
+            <br/>
+            <br/>
+            <div style="width: 373px; color: black; font-size: 14px; font-family: Poppins; font-weight: 400; line-height: 21px; word-wrap: break-word;">@Model.description</div>
+            <div style="width: 336px; height: 45px; padding-left: 48px; padding-right: 48px; padding-top: 10px; padding-bottom: 10px; background: #E3000B; border-radius: 4px; justify-content: center; align-items: center; gap: 10px; display: flex;">
+                <div style="color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500; line-height: 24px; word-wrap: break-word;">Add to Cart</div>
+            </div>
+            <div style="width: 400px; height: 183px; position: relative; border-radius: 4px; overflow: hidden; border: 1px rgba(0, 0, 0, 0.50) solid">
+                <div style="width: 399px; height: 0px; border: 1px black solid"></div>
+                <div style="left: 16px; top: 24px; position: absolute; justify-content: flex-start; align-items: center; gap: 16px; display: inline-flex">
+                    <div style="width: 40px; height: 40px; position: relative">
+                        <div style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute"></div>
+                        <div style="width: 6.67px; height: 6.67px; left: 8.33px; top: 25px; position: absolute; border: 2px black solid"></div>
+                        <div style="width: 6.67px; height: 6.67px; left: 25px; top: 25px; position: absolute; border: 2px black solid"></div>
+                        <div style="width: 31.67px; height: 20px; left: 3.33px; top: 8.33px; position: absolute; border-radius: 2px; border: 2px black solid"></div>
+                        <div style="width: 31.67px; height: 20px; left: 3px; top: 8px; position: absolute; border-radius: 2px; border: 2px black solid"></div>
+                        <div style="width: 6.67px; height: 0px; left: 5px; top: 11.82px; position: absolute; border: 2px black solid"></div>
+                        <div style="width: 6.67px; height: 0px; left: 1.82px; top: 15.45px; position: absolute; border: 2px black solid"></div>
+                        <div style="width: 6.67px; height: 0px; left: 5px; top: 19.09px; position: absolute; border: 2px black solid"></div>
+                    </div>
+                    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                        <div style="color: black; font-size: 16px; font-family: Poppins; font-weight: 500; line-height: 24px; word-wrap: break-word">Shipping</div>
+                        <div style="color: black; font-size: 12px; font-family: Poppins; font-weight: 500; line-height: 18px; word-wrap: break-word">$5 per order</div>
+                    </div>
+                </div>
+                
+                <div style="left: 16px; top: 106px; position: absolute; justify-content: flex-start; align-items: center; gap: 16px; display: inline-flex">
+                    <div style="height: 38px; padding-top: 6.33px; padding-bottom: 3.17px; padding-left: 3.17px; padding-right: 2.77px; justify-content: center; align-items: center; display: flex">
+                        <div style="width: 32.06px; height: 28.50px; position: relative">
+                            <div style="width: 32.06px; height: 9.50px; left: -0px; top: 19px; position: absolute; border: 2px rgba(0, 0, 0, 0.81) solid"></div>
+                            <div style="width: 31.67px; height: 21.38px; left: 0px; top: 0px; position: absolute; border: 2px rgba(0, 0, 0, 0.81) solid"></div>
+                            <div style="width: 7.92px; height: 7.12px; left: 16.62px; top: -0px; position: absolute; border: 2px rgba(0, 0, 0, 0.81) solid"></div>
+                        </div>
+                    </div>
+                    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                        <div style="color: black; font-size: 16px; font-family: Poppins; font-weight: 500; line-height: 24px; word-wrap: break-word">Delivery</div>
+                        <div style="color: black; font-size: 12px; font-family: Poppins; font-weight: 500; line-height: 18px; word-wrap: break-word">Estimated between Thu, Jan 4 and Fri, Jan 12</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 </div>
+
 
