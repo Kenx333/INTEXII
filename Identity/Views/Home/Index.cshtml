@@ -1,104 +1,214 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Authentication";
 }
 
-@using INTEXII.Models
-@using System.Web
+@model List<INTEXII.Models.Product>
 
 
-<h1 class="bg-info text-white">Hej! Build Your Dreams, Brick by Brick.</h1>
-
-
-<h1> Top picks for you: </h1>
-
-
-
-
-@* @{
-    ViewData["Title"] = "Products";
-
-    // Sample list of LEGO sets (replace with your actual data)
-    var legoSets = new List<LegoSet>
-    {
-        new LegoSet { Id = 1, Name = "LEGO City Police Station", Price = 49.99m, ImageUrl = "/images/police_station.jpg" },
-        new LegoSet { Id = 2, Name = "LEGO Star Wars Millennium Falcon", Price = 159.99m, ImageUrl = "/images/millennium_falcon.jpg" },
-        new LegoSet { Id = 3, Name = "LEGO Creator Expert Volkswagen Beetle", Price = 99.99m, ImageUrl = "/images/volkswagen_beetle.jpg" },
-        // Add more LEGO sets here...
-    };
-
-    // Paginator settings
-    var pageSize = 9; // Number of items per page
-    var currentPage = 1; // Current page number
-    var legoSetsPaginated = legoSets.Skip((currentPage - 1) * pageSize).Take(pageSize);
-}
- *@
-@* <h1>@ViewData["Title"]</h1>
-
-<!-- Sort dropdown -->
-<div>
-    <label for="sortDropdown">Sort By:</label>
-    <select id="sortDropdown">
-        <option value="name">Name</option>
-        <option value="price">Price</option>
-    </select>
-</div> *@
-
-<!-- LEGO sets grid -->
-@* <div class="row">
-    @foreach (var legoSet in legoSetsPaginated)
-    {
-        <div class="col-md-4">
-            <div class="card">
-                <img src="@legoSet.ImageUrl" class="card-img-top" alt="@legoSet.Name">
-                <div class="card-body">
-                    <h5 class="card-title">@legoSet.Name</h5>
-                    <p class="card-text">Price: $@legoSet.Price</p>
+<div style="width: 1442px; height: 183px; left: 0px; top: 88px; position: absolute; background: #F0F0F0"></div>
+<div style="width: 236px; height: 157px; left: 24px; top: 114px; position: absolute; text-align: center; color: #A14243; font-size: 100px; font-family: Inter; font-weight: 700; word-wrap: break-word">Hej!</div>
+@*<div style="width: 1440px; height: 214px; left: -3px; top: 2028px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+   <div style="width: 1440px; height: 214px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+        <div style="width: 1440px; height: 221px; position: relative">
+            <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute">
+                <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute; background: #F0F0F0"></div>
+                <div style="width: 148px; height: 28px; left: 78px; top: 106px; position: absolute">
+                    <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                        <div style="width: 11.17px; height: 9.03px; left: 9.03px; top: 9.94px; position: absolute; background: #F3070A"></div>
+                    </div>
+                    <div style="width: 28px; height: 28px; left: 40px; top: 0px; position: absolute">
+                        <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: #F3070A; border-radius: 9999px"></div>
+                        <div style="width: 6.32px; height: 12.17px; left: 10.84px; top: 8.13px; position: absolute; background: white"></div>
+                    </div>
+                    <div style="width: 28px; height: 28px; left: 80px; top: 0px; position: absolute">
+                        <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                        <div style="width: 13.55px; height: 13.55px; left: 7.23px; top: 7.23px; position: absolute">
+                            <div style="width: 13.55px; height: 13.55px; left: 0px; top: 0px; position: absolute; background: #F3070A"></div>
+                            <div style="width: 6.96px; height: 6.96px; left: 3.30px; top: 3.30px; position: absolute; background: #F3070A"></div>
+                            <div style="width: 1.63px; height: 1.63px; left: 9.58px; top: 2.35px; position: absolute; background: #F3070A"></div>
+                        </div>
+                    </div>
+                    <div style="width: 28px; height: 28px; left: 120px; top: 0px; position: absolute">
+                        <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                        <div style="width: 12.96px; height: 12.65px; left: 8.13px; top: 7.23px; position: absolute; background: #F3070A"></div>
+                    </div>
+                </div>
+                <div style="width: 1239.14px; height: 0px; left: 77.50px; top: 182.74px; position: absolute; border: 1px rgba(159, 50, 71, 0.10) solid"></div>
+            </div>
+            <div style="width: 1239px; height: 154px; left: 65px; top: 21px; position: absolute; justify-content: space-between; align-items: flex-start; display: inline-flex">
+                <div style="color: rgba(161, 66, 67, 0.69); font-size: 16px; font-family: Rubik; font-weight: 400; word-wrap: break-word">                    BRICKWELL<br />                    Join Our Lego™ Family: Where Every Builder is Celebrated.</div>
+                <div style="height: 42px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 35px; display: inline-flex">
+                    <div></div>
+                </div>
+                <div style="height: 220px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                    <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">FAQ</div>
+                    <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Account<br /><br />Manage Deliveries<br /><br /></div>
+                </div>
+                <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Orders<br /><br />Payments</div>
+                <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                    <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">Resources</div>
+                    <div style="color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Lego Website<br /><br /></div>
                 </div>
             </div>
         </div>
-    }
-</div> *@
+        <img style="width: 69px; height: 73px; border-radius: 24px" src="https://via.placeholder.com/69x73" />
+        <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+        <div style="width: 1440px; height: 38px; background: #E3000B"></div>
+        <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
+        <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
+        <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+    </div> 
+</div>*@
+<div style="width: 966px; height: 84px; left: 261px; top: 145px; position: absolute; color: rgba(161, 66, 67, 0.69); font-size: 60px; font-family: Inter; font-weight: 500; word-wrap: break-word">Build Your Dreams, Brick by Brick.</div>
+<div style="width: 27.73px; height: 0px; left: 291.52px; top: 312.27px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; border: 0.50px #BEBEBE solid"></div>
+<div style="left: 57px; top: 310px; position: absolute; color: #0F1E2C; font-size: 25px; font-family: Rubik; font-weight: 600; word-wrap: break-word">Top picks for you</div>
+<div style="left: 310.59px; top: 316.50px; position: absolute; color: #666666; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Sales upto 70% off in the selected items</div>
 
-@* <!-- Paginator -->
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        @for (int i = 1; i <= Math.Ceiling((double)legoSets.Count / pageSize); i++)
-        {
-            <li class="page-item @(i == currentPage ? "active" : "")">
-                <a class="page-link" href="?page=@i">@i</a>
-            </li>
-        }
-    </ul>
-</nav> *@
-
-@* @{
-    ViewData["Title"] = "Home";
-} *@
-
-@model List<INTEXII.Models.Product> // Assuming Product is your model class
-
-@* <h1>@ViewData["Title"]</h1> *@
-
-<div class="row row-cols-1 row-cols-md-3">
-    @foreach (var product in Model.Take(3)) // Take only the first three products
+<div class="row" style="margin-top: 300px;">
+    @if (Model != null)
     {
-        <div class="col mb-4">
-            <a href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
-                <partial name="ProductInfoCard" model="product" />
-            </a>
-        </div>
+        foreach (var product in Model.Take(3))
+        {
+            <div class="col mb-4" style="text-align: center;">
+                <a href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
+                    <partial name="ProductInfoCard" model="product" />
+                </a>
+            </div>
+        }
     }
 </div>
 
-
-
-
-
 @await Html.PartialAsync("_CookieNotification")
-
 
 @if (User?.Identity?.IsAuthenticated ?? false)
 {
-    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+    </div>
 }
+
+
+
+
+
+@* <div style="width: 1440px; height: 2242px; position: relative; background: white">
+    <div style="width: 1442px; height: 183px; left: 0px; top: 88px; position: absolute; background: #F0F0F0"></div>
+    <div style="width: 236px; height: 157px; left: 24px; top: 114px; position: absolute; text-align: center; color: #A14243; font-size: 100px; font-family: Inter; font-weight: 700; word-wrap: break-word">Hej!</div>
+    <div style="width: 1440px; height: 214px; left: -3px; top: 2028px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+        <div style="width: 1440px; height: 214px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+            <div style="width: 1440px; height: 221px; position: relative">
+                <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute; background: #F0F0F0"></div>
+                    <div style="width: 148px; height: 28px; left: 78px; top: 106px; position: absolute">
+                        <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                            <div style="width: 11.17px; height: 9.03px; left: 9.03px; top: 9.94px; position: absolute; background: #F3070A"></div>
+                        </div>
+                        <div style="width: 28px; height: 28px; left: 40px; top: 0px; position: absolute">
+                            <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: #F3070A; border-radius: 9999px"></div>
+                            <div style="width: 6.32px; height: 12.17px; left: 10.84px; top: 8.13px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 28px; height: 28px; left: 80px; top: 0px; position: absolute">
+                            <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                            <div style="width: 13.55px; height: 13.55px; left: 7.23px; top: 7.23px; position: absolute">
+                                <div style="width: 13.55px; height: 13.55px; left: 0px; top: 0px; position: absolute; background: #F3070A"></div>
+                                <div style="width: 6.96px; height: 6.96px; left: 3.30px; top: 3.30px; position: absolute; background: #F3070A"></div>
+                                <div style="width: 1.63px; height: 1.63px; left: 9.58px; top: 2.35px; position: absolute; background: #F3070A"></div>
+                            </div>
+                        </div>
+                        <div style="width: 28px; height: 28px; left: 120px; top: 0px; position: absolute">
+                            <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                            <div style="width: 12.96px; height: 12.65px; left: 8.13px; top: 7.23px; position: absolute; background: #F3070A"></div>
+                        </div>
+                    </div>
+                    <div style="width: 1239.14px; height: 0px; left: 77.50px; top: 182.74px; position: absolute; border: 1px rgba(159, 50, 71, 0.10) solid"></div>
+                </div>
+                <div style="width: 1239px; height: 154px; left: 65px; top: 21px; position: absolute; justify-content: space-between; align-items: flex-start; display: inline-flex">
+                    <div style="color: rgba(161, 66, 67, 0.69); font-size: 16px; font-family: Rubik; font-weight: 400; word-wrap: break-word">                    BRICKWELL<br />                    Join Our Lego™ Family: Where Every Builder is Celebrated.</div>
+                    <div style="height: 42px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 35px; display: inline-flex">
+                        <div></div>
+                    </div>
+                    <div style="height: 220px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                        <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">FAQ</div>
+                        <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Account<br /><br />Manage Deliveries<br /><br /></div>
+                    </div>
+                    <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Orders<br /><br />Payments</div>
+                    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                        <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">Resources</div>
+                        <div style="color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Lego Website<br /><br /></div>
+                    </div>
+                </div>
+            </div>
+            <img style="width: 69px; height: 73px; border-radius: 24px" src="https://via.placeholder.com/69x73" />
+            <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+            <div style="width: 1440px; height: 38px; background: #E3000B"></div>
+            <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
+            <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
+            <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+        </div>
+    </div>
+    <div style="width: 966px; height: 84px; left: 261px; top: 145px; position: absolute; color: rgba(161, 66, 67, 0.69); font-size: 60px; font-family: Inter; font-weight: 500; word-wrap: break-word">Build Your Dreams, Brick by Brick.</div>
+    <div style="width: 27.73px; height: 0px; left: 291.52px; top: 312.27px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; border: 0.50px #BEBEBE solid"></div>
+    <div style="left: 57px; top: 310px; position: absolute; color: #0F1E2C; font-size: 25px; font-family: Rubik; font-weight: 600; word-wrap: break-word">Top picks for you</div>
+    <div style="left: 310.59px; top: 316.50px; position: absolute; color: #666666; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Sales upto 70% off in the selected items</div>
+    <div style="width: 1359px; height: 328px; left: 43px; top: -1312px; position: absolute">
+        <div style="width: 389.82px; height: 328px; left: 483.99px; top: 0px; position: absolute">
+            <img style="width: 303.99px; height: 252px; left: 45.30px; top: 11px; position: absolute" src="https://via.placeholder.com/311x238" />
+            <div style="width: 389.82px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div style="width: 389.82px; height: 328px; left: 969.18px; top: 0px; position: absolute">
+            <img style="width: 311.14px; height: 238px; left: 39.34px; top: 18px; position: absolute" src="https://via.placeholder.com/311x238" />
+            <div style="width: 389.82px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div style="width: 389.82px; height: 328px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 389.82px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+            <img style="width: 303.99px; height: 252px; left: 30.99px; top: 11px; position: absolute; border-radius: 4px" src="https://via.placeholder.com/304x252" />
+            <div style="width: 164.51px; height: 45px; left: 19.07px; top: 11px; position: absolute">
+                <div style="width: 164.51px; height: 45px; left: 0px; top: 0px; position: absolute; background: #FAED00; border-radius: 40px"></div>
+                <div style="width: 154.97px; height: 29px; left: 4.77px; top: 8px; position: absolute; text-align: center; color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">Best Seller</div>
+            </div>
+        </div>
+    </div> *@
+    @* <div style="width: 1453px; height: 88px; left: -6px; top: 0px; position: absolute">
+        <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
+                <div style="width: 1451px; height: 96px; left: 0px; top: 0px; position: absolute; background: #E3000B"></div>
+                <img style="width: 94px; height: 94px; left: 17px; top: 0px; position: absolute" src="https://via.placeholder.com/94x94" />
+                <div style="width: 22px; height: 22px; left: 1281px; top: 36px; position: absolute; background: #FAED00"></div>
+                <div style="width: 25px; height: 25px; padding: 1.95px; left: 1205px; top: 35px; position: absolute; background: rgba(250, 237, 0, 0); justify-content: center; align-items: center; display: inline-flex">
+                    <div style="width: 21.09px; height: 21.09px; background: #FAED00"></div>
+                </div>
+                <div style="width: 60px; height: 16px; left: 1235px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">User</div>
+                <div style="width: 60px; height: 16px; left: 1308px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">(0)</div>
+            </div>
+            <div style="width: 107px; height: 26.40px; left: 141px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Home</div>
+            <div style="width: 161px; height: 26.40px; left: 261px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Products</div>
+            <div style="width: 161px; height: 26.40px; left: 435px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">About Us</div>
+            <div style="width: 75px; height: 25px; left: 1344px; top: 38px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">|  Log out</div>
+        </div>
+        <div style="width: 35px; height: 36px; left: 1240px; top: 30px; position: absolute"></div>
+    </div>
+    <div style="width: 1351px; height: 328px; left: 43px; top: 365px; position: absolute">
+        <div style="width: 387.52px; height: 328px; left: 481.15px; top: -0px; position: absolute">
+            <img style="width: 302.20px; height: 252px; left: 45.03px; top: 11px; position: absolute" src="https://via.placeholder.com/302x252" />
+            <div style="width: 387.52px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div style="width: 387.52px; height: 328px; left: 963.48px; top: -0px; position: absolute">
+            <img style="width: 309.31px; height: 238px; left: 39.11px; top: 18px; position: absolute" src="https://via.placeholder.com/309x238" />
+            <div style="width: 387.52px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+        <div style="width: 387.52px; height: 328px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 387.52px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+            <img style="width: 302.20px; height: 252px; left: 30.81px; top: 11px; position: absolute; border-radius: 4px" src="https://via.placeholder.com/302x252" />
+            <div style="width: 163.54px; height: 45px; left: 18.96px; top: 11px; position: absolute">
+                <div style="width: 163.54px; height: 45px; left: 0px; top: 0px; position: absolute; background: #FAED00; border-radius: 40px"></div>
+                <div style="width: 154.06px; height: 29px; left: 4.74px; top: 8px; position: absolute; text-align: center; color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">Best Seller</div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 138px; height: 45px; left: 547px; top: 376px; position: absolute">
+        <div style="width: 138px; height: 45px; left: 0px; top: 0px; position: absolute; background: #FAED00; border-radius: 40px"></div>
+        <div style="width: 112px; height: 29px; left: 22px; top: 8px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">50% Off</div>
+    </div> *@
+    
