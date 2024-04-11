@@ -70,7 +70,7 @@
     </ul>
 </nav> *@
 
-
+@await Html.PartialAsync("_CookieNotification")
 
 
 @if (User?.Identity?.IsAuthenticated ?? false)
