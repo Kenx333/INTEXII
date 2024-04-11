@@ -1,6 +1,5 @@
-﻿using INTEXII.Infrastructure;
-using Microsoft.CodeAnalysis;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+using INTEXII.Infrastructure;
 
 namespace INTEXII.Models
 {

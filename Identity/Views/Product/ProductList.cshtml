@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+@model INTEXII.Models.ViewModels.ProductsListViewModel
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row row-cols-1 row-cols-md-3">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col mb-4">
+            <a href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
+                <partial name="ProductInfoCard" model="product" />
+            </a>
+        </div>
+    }
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            Page:
+        </div>
+    </div>
+</div>
+
+<div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

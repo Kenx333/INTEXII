@@ -2,7 +2,7 @@
 
 namespace INTEXII.Models.ViewModels
 {
-    public class ProductsListViewModel
+    public class ShoppingCartViewModel
     {
         public IQueryable<Product> Products { get; set; }
 

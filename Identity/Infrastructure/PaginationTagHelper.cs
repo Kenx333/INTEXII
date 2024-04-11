@@ -8,6 +8,7 @@ using INTEXII.Models.ViewModels;
 namespace INTEXII.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-model")]
+    
     //create the PaginationTagHelper class that inherits from the TagHelper class
     public class PaginationTagHelper : TagHelper
     {
@@ -38,6 +39,7 @@ namespace INTEXII.Infrastructure
                 IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
 
                 TagBuilder result = new TagBuilder("div");
+
 
                 for (int i = 1; i <= PageModel.TotalNumPages; i++)
                 {
