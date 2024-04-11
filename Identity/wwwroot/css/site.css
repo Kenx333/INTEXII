@@ -181,3 +181,17 @@ h2 {
     font-weight: 400;
     word-wrap: break-word
 }
+
+/* This will apply when the window width is 768px or less */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .addButton,
+    .filterBy,
+    .sortBy {
+        width: 100%; /* Full width on smaller screens */
+        margin-top: 0.5em;
+    }
+}

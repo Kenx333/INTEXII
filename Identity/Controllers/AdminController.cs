@@ -11,10 +11,11 @@ namespace INTEXII.Controllers
         private UserManager<AppUser> userManager;
         private IPasswordHasher<AppUser> passwordHasher;
         private IProductRepository _productRepository;
-        public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHash)
+        public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHash, IProductRepository productRepository)
         {
             userManager = usrMgr;
             passwordHasher = passwordHash;
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
@@ -22,31 +23,34 @@ namespace INTEXII.Controllers
             return View();  
         }
 
-        public IActionResult Home(int pageNum, string? categoryType)
+        public IActionResult Home()
         {
-            //int pageSize = 6;
-            //var pagination = new ProductsListViewModel
-            //{
-            //    Products = _productRepository.Products
-            //    .OrderBy(x => x.product_ID)
-            //    .Skip((pageNum - 1) * pageSize)
-            //    .Take(pageSize),
-            //    PaginationInfo = new PaginationInfo
-            //    {
-            //        CurrentPage = pageNum,
-            //        ItemsPerPage = pageSize,
-            //        TotalItems = categoryType == null ? _productRepository.Products.Count() : _productRepository.Products.Where(x => x.category == categoryType).Count()
-            //    },
-            //    CurrentCategory = categoryType
-            //};
+            //var firstThreeProducts = db.Products.Take(3).ToList();
 
-            //return View(pagination);
-            return View("Home");
+            //// Pass the products to the view
+            //return View(firstThreeProducts);
+
+            return View();
         }
 
-        public IActionResult ProductList ()
+        public IActionResult ProductList (int pageNum, string? categoryType)
         {
-            return View();
+            int pageSize = 6;
+            var p = new ProductsListViewModel
+            {
+                Products = _productRepository.Products
+                .OrderBy(x => x.product_ID)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = categoryType == null ? _productRepository.Products.Count() : _productRepository.Products.Where(x => x.category == categoryType).Count()
+                },
+            };
+
+            return View(p);
         }
         public IActionResult OrderList()
         {

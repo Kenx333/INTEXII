@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using System.Configuration;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("INTEXIIIdentityDbContextConnection") ?? throw new InvalidOperationException("Connection string 'INTEXIIIdentityDbContextConnection' not found.");
@@ -109,6 +110,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapControllerRoute("pagination", "{pageNum}", new { controller = "Home", Action = "Index", pageNum = 1 });
+app.MapControllerRoute("pagination", "{pageNum}", new { controller = "Admin", Action = "Home", pageNum = 1 });
 
 app.MapControllerRoute(
     name: "default",

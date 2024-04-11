@@ -6,21 +6,24 @@
 @model Product
 
 <div class="product-card">
-    <div class="row">
+    <div class="row ">
+        <div class="col-1 sm">
+        </div>
         <div class="col-3">
             <img src="@Model.img_link" alt="Product Image">
         </div>
-        <div class="col-7">
+        <div class="col-6">
             <div class="product-info">
                 <h2>@Model.name</h2>
                 <p class="price">$ @Model.price</p>
                 <ul>
                     <li>Year: @Model.year</li>
+                    <li>Category: @Model.category</li>
                     <li>Number of Parts: @Model.num_parts</li>
                     <li>Primary Color: @Model.primary_color</li>
                     <li>Secondary Color: @Model.secondary_color</li>
-                    <li>Description: @Model.description</li>
-                    <li>Category: @Model.category</li>
+                    <li>Description: ...</li>
+                    
                 </ul>
             </div>
         </div>
@@ -28,14 +31,20 @@
             <br />
             <form method="post" asp-page="/ProductEdit">
                 <input type="hidden" asp-for="@Model.product_ID" />
-                <button type="submit" class="edit-button">Edit</button>
+                <button type="submit" class="delete-button" style="                  border-radius: 5px;
+                    border: 1px solid #EAEAEA;
+                    background: #F0F0F0;">
+                    Edit
+                </button>
             </form>
-            
+
             <br><br />
             <form method="post" asp-page="/ProductDelete">
                 <input type="hidden" asp-for="@Model.product_ID" />
-            <button type="submit" class="delete-button">Delete</button>
+                <button type="submit" class="delete-button" style="color: #A14243;">Delete</button>
             </form>
+        </div>
+        <div class="col-1 sm">
         </div>
     </div>
 </div>

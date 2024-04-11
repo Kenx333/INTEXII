@@ -1,49 +1,128 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-} 
+﻿@{
+    ViewBag.Title = "Admin_Product List";
+    Layout = "_AdminLayout";
+}
+
 @model INTEXII.Models.ViewModels.ProductsListViewModel
+<h1 class="title" style="color: #A14243; ">
+    All Products
+</h1>
+<div class="admin-page">
 
-<div class="AdminProductLsitPage" style="width: 1421px; height: 1772px; position: relative; background: white; flex">
 
-    <div class="AddButton" style="width: 69px; height: 41px; left: 1235px; top: 247px; position: absolute">
-        <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div class="Add" style="left: 15px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Add</div>
-    </div>
+    <div class="container-fluid">
+     @*    <div class="row">
+            <div class="AdminProductLsitPage" style=" position: relative; background: white; flex">
 
-    <div class="Title" 
-        style="left: 68px; top: 173px; position: absolute; color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; word-wrap: break-word">
-        All Products
-    </div>
-    <div class="FilterBy" style="width: 121.40px; height: 41.24px; left: 68px; top: 243px; position: absolute">
-        <div class="Rectangle210" style="width: 121.40px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div class="FilterBy" style="left: 53.10px; top: 14.12px; position: absolute; color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">
-            Filter by
-        </div>
-        <div class="MiFilter" style="width: 24px; height: 24px; left: 19.18px; top: 8.62px; position: absolute">
-            <div class="Vector" style="width: 16px; height: 18px; left: 4px; top: 3px; position: absolute; background: #A14243"></div>
-        </div>
-    </div>
-    <div class="SortBy" style="width: 210.53px; height: 41.24px; left: 221px; top: 243px; position: absolute">
-        <div class="Rectangle211" style="width: 210.53px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div class="SortByPriceLowToHigh" style="left: 43.28px; top: 14.12px; position: absolute"><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">
-            Sort By:  
-            </span><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 300; word-wrap: break-word">Price Low to High</span></div>
-        <div class="MiFilter" style="width: 24px; height: 24px; left: 9.35px; top: 8.62px; position: absolute">
-            <div class="Vector" style="width: 16px; height: 18px; left: 4px; top: 3px; position: absolute; background: #A14243"></div>
-        </div>
-        <div class="FeArrowUp" style="width: 14px; height: 14px; left: 203.18px; top: 28.12px; position: absolute; transform: rotate(-180deg); transform-origin: 0 0">
-            <div class="Vector" style="width: 9.33px; height: 5.83px; left: 2.33px; top: 4.08px; position: absolute; background: black"></div>
-        </div>
-    </div>
+            <div class="AddButton" style="width: 69px; height: 41px; left: 1235px; top: 247px; position: relative; float-right">
+                <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+                <div class="Add" style="left: 15px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Add</div>
+            </div>
 
-    @foreach(Product p in Model.Products)
-    {
-        <partial name="ProductSummary" model="p"/>
-
-    }
+            <div class="Title"
+                 style="left: 68px; top: 173px; position: absolute; color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; word-wrap: break-word">
+                All Products
+            </div>
+            <div class="FilterBy" style="width: 121.40px; height: 41.24px; left: 68px; top: 243px; position: absolute">
+                <div class="Rectangle210" style="width: 121.40px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+                <div class="FilterBy" style="left: 53.10px; top: 14.12px; position: absolute; color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">
+                    Filter by
+                </div>
+                <div class="MiFilter" style="width: 24px; height: 24px; left: 19.18px; top: 8.62px; position: absolute">
+                    <div class="Vector" style="width: 16px; height: 18px; left: 4px; top: 3px; position: absolute; background: #A14243"></div>
+                </div>
+            </div>
+            <div class="SortBy" style="width: 210.53px; height: 41.24px; left: 221px; top: 243px; position: absolute">
+                <div class="Rectangle211" style="width: 210.53px; height: 41.24px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+                <div class="SortByPriceLowToHigh" style="left: 43.28px; top: 14.12px; position: absolute">
+                    <span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">
+                        Sort By:
+                    </span><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 300; word-wrap: break-word">Price Low to High</span>
+                </div>
+                <div class="MiFilter" style="width: 24px; height: 24px; left: 9.35px; top: 8.62px; position: absolute">
+                    <div class="Vector" style="width: 16px; height: 18px; left: 4px; top: 3px; position: absolute; background: #A14243"></div>
+                </div>
+                <div class="FeArrowUp" style="width: 14px; height: 14px; left: 203.18px; top: 28.12px; position: absolute; transform: rotate(-180deg); transform-origin: 0 0">
+                    <div class="Vector" style="width: 9.33px; height: 5.83px; left: 2.33px; top: 4.08px; position: absolute; background: black"></div>
+                </div>
+                </div>
+            </div>
+        </div> *@
     
+            <div class="row">
+ 
+                <div class="col-1 ">
+                </div>
+                <div class="col-2 ">
+                    <div class="filterBy">
+                        <div class="filterBy-icon"></div>
+                        Filter by
+                    </div>
+                </div>
+                <div class="col-2 ">
+
+                    <div class="sortBy">
+                        <div class="sortBy-icon"></div>
+                        Sort By: Price Low to High
+                    </div>
+                </div>
+                <div class="col-5 ">
+                </div>
+                <div class="col-1 ">
+                <div class="addButton">
+                        Add
+                </div>
+                 </div>
+            <div class="col-1 ">
+            </div>
+            </div>
+    </div>
+
+    <div class="row">
+
+        @foreach (Product p in Model.Products)
+        {
+            <partial name="ProductSummary" model="p" />
+
+        }
+    </div>
+    @*Pagination *@
+    <div class="row">
+        <div asp-model="@Model.PaginationInfo" asp-action="ProductList" page-classes-enable="true" page-class="btn"
+        page-class-normal="btn-outline-light"  page-class-selected="btn-primary" class="btn-group fa-pull-right m-1"></div>
+    </div>
+</div>
+
+
+@* 
+    <div class="OneProductCard" style="width: 1308px; height: 342.40px; left: 58px; top: 324px; position: absolute">
+        <div class="ProductDetailsCard" style="width: 981px; height: 342.40px; left: 327px; top: 0px; position: absolute">
+            <div class="Rectangle160" style="width: 981px; height: 342.40px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+            <div class="ProductInfoCard" style="width: 205.58px; height: 130.21px; left: 42px; top: 20.88px; position: absolute">
+                <div class="ProductName" style="width: 128.87px; height: 25.64px; left: 0px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Product name</div>
+                <div class="120" style="width: 62px; height: 29.23px; left: -0px; top: 36.79px; position: absolute; color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
+                <div class="CategoryStartwar" style="width: 205.58px; height: 17.09px; left: 0px; top: 113.12px; position: absolute; color: #212427; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Category: StartWar<br /></div>
+                <div class="NumberOfPart2222" style="width: 205.58px; height: 17.09px; left: 0px; top: 82.12px; position: absolute; color: #212427; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Number of Part: 2222</div>
+            </div>
+        </div>
+        <div class="EditDeleteButtons" style="width: 69px; height: 136px; left: 1177px; top: 47px; position: absolute">
+            <div class="EditButton" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute">
+                <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
+                <div class="Edit" style="left: 13px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Edit</div>
+            </div>
+            <div class="Delete" style="width: 69px; height: 41px; left: 0px; top: 95px; position: absolute">
+                <div class="Rectangle212" style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: rgba(161.06, 65.90, 67.11, 0.59); border-radius: 5px; border: 0.73px rgba(161.06, 65.90, 67.11, 0.59) solid"></div>
+                <div class="Delete" style="left: 5px; top: 9px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</div>
+            </div>
+        </div>
+        <div class="ProductProfile" style="width: 327px; height: 342.40px; left: 0px; top: 0px; position: absolute">
+            <img class="Download1" style="width: 272px; height: 267.24px; left: 20px; top: 34px; position: absolute" src="https://via.placeholder.com/272x267" />
+            <div class="Rectangle160" style="width: 327px; height: 342.40px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
+        </div>
+    </div> *@
+
+    
+
 
     @*fOR EACH *@
         @* <div class="OneProductCard" style="width: 1308px; height: 342.40px; left: 58px; top: 324px; position: absolute">
@@ -73,4 +152,50 @@
         </div> *@
 
 
-</div>
+<style>
+                                .admin-page {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .addButton,
+                .filterBy,
+                .sortBy {
+                    border-radius: 5px;
+                    border: 1px solid #EAEAEA;
+                    background: #F0F0F0;
+                    color: #A14243;
+                    font-family: 'Rubik', sans-serif;
+                    position: relative; /* No need for absolute positioning */
+                }
+
+                .addButton {
+                    align-self: flex-end; /* Align to the right */
+                    padding: 0.5em 1em; /* Use em units for padding */
+                }
+
+                .title {
+                    font-size: 3em; /* em units for font sizes */
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 700;
+                    margin: 1em 0; /* Add margin for spacing */
+                }
+
+                .filterBy,
+                .sortBy {
+                    display: flex;
+                    align-items: center;
+                    padding: 0.25em 0.5em;
+                    margin-top: 1em;
+                }
+
+                .filterBy-icon,
+                .sortBy-icon {
+                    background: #A14243;
+                    margin-right: 0.5em;
+                }
+
+
+            </style>
+<link rel="stylesheet" href="\Identity\wwwroot\css\site.css" />
