@@ -1,19 +1,21 @@
-﻿@model string
-
+﻿
 @{
     ViewData["Title"] = "Authentication";
 }
-
-<h1 class="bg-info text-white">Hej! Build Your Dreams, Brick by Brick.</h1>
-@Model
-
-<h1> Top picks for you: </h1>
 
 @using INTEXII.Models
 @using System.Web
 
 
-@{
+<h1 class="bg-info text-white">Hej! Build Your Dreams, Brick by Brick.</h1>
+
+
+<h1> Top picks for you: </h1>
+
+
+
+
+@* @{
     ViewData["Title"] = "Products";
 
     // Sample list of LEGO sets (replace with your actual data)
@@ -30,8 +32,8 @@
     var currentPage = 1; // Current page number
     var legoSetsPaginated = legoSets.Skip((currentPage - 1) * pageSize).Take(pageSize);
 }
-
-<h1>@ViewData["Title"]</h1>
+ *@
+@* <h1>@ViewData["Title"]</h1>
 
 <!-- Sort dropdown -->
 <div>
@@ -40,10 +42,10 @@
         <option value="name">Name</option>
         <option value="price">Price</option>
     </select>
-</div>
+</div> *@
 
 <!-- LEGO sets grid -->
-<div class="row">
+@* <div class="row">
     @foreach (var legoSet in legoSetsPaginated)
     {
         <div class="col-md-4">
@@ -56,7 +58,7 @@
             </div>
         </div>
     }
-</div>
+</div> *@
 
 @* <!-- Paginator -->
 <nav aria-label="Page navigation">
@@ -69,6 +71,29 @@
         }
     </ul>
 </nav> *@
+
+@* @{
+    ViewData["Title"] = "Home";
+} *@
+
+@model List<INTEXII.Models.Product> // Assuming Product is your model class
+
+@* <h1>@ViewData["Title"]</h1> *@
+
+<div class="row row-cols-1 row-cols-md-3">
+    @foreach (var product in Model.Take(3)) // Take only the first three products
+    {
+        <div class="col mb-4">
+            <a href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
+                <partial name="ProductInfoCard" model="product" />
+            </a>
+        </div>
+    }
+</div>
+
+
+
+
 
 @await Html.PartialAsync("_CookieNotification")
 

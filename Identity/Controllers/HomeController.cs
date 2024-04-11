@@ -10,12 +10,24 @@ namespace INTEXII.Controllers
 {
     public class HomeController : Controller
     {
-        private UserManager<AppUser> userManager;
-        public HomeController(UserManager<AppUser> userMgr)
+        //private UserManager<AppUser> userManager;
+        //public HomeController(UserManager<AppUser> userMgr)
+        //{
+        //    userManager = userMgr;
+        //}
+
+        private readonly IProductRepository _productRepository;
+
+        public HomeController(IProductRepository productRepository)
         {
-            userManager = userMgr;
+            _productRepository = productRepository;
         }
 
+        public IActionResult Index()
+        {
+            var products = _productRepository.Products.Take(3).ToList();
+            return View(products);
+        }
         //[Authorize]
         ////[Authorize(Roles = "Manager")]
         //public async Task<IActionResult> Index()
@@ -29,10 +41,10 @@ namespace INTEXII.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Index()
-        {
-            return View();
-        }
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View();
+        //}
         public async Task<IActionResult> About()
         {
             return View();
@@ -49,5 +61,7 @@ namespace INTEXII.Controllers
         {
             return View();
         }
+
+
     }
 }
