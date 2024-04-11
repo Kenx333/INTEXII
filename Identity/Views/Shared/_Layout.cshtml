@@ -11,8 +11,8 @@
 
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: black;">
+    @*<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #F3070A;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: white; font-weight: bold;">
                     <img src="/img/logo.png" alt="brickwell logo" width="75" height="75" />
@@ -36,9 +36,9 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy" style="font-weight: bold;">Privacy</a>
                         </li>
                     </ul><ul class="navbar-nav">
-                    @* 
+                     
                         This line of code below is what is in the 414 lab, but it causes an error
-                    <partial name="_LoginPartial"/>*@
+                    <partial name="_LoginPartial"/
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -51,21 +51,15 @@
                             </li>
                         <li class="nav-item">
 @*                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Register</a>
-                             <a style="font-weight: bold;" class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> *@
+                             <a style="font-weight: bold;" class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> 
 
 
                         </li>
-                           @* If we want to show the icon of the user
-                               
-                           <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="AccountInfo" style="font-weight: bold;"><img src="/img/userIcon.png" /></a>
-                            </li> *@
+                           
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register" style="font-weight: bold;">Register</a>
                             </li>
-                            @* <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
-                            </li> *@
+                            
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/" style="font-weight: bold;">Login</a>
                         </li>
@@ -76,9 +70,27 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header>>*@
 
-
+    <div style="width: 1453px; height: 88px; position: relative">
+        <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
+                <div style="width: 1451px; height: 96px; left: 0px; top: 0px; position: absolute; background: #E3000B"></div>
+                <img style="width: 94px; height: 94px; left: 17px; top: 0px; position: absolute" src="/img/logo.png" />
+                <div style="width: 22px; height: 22px; left: 1281px; top: 36px; position: absolute; background: #FAED00"></div>
+                <div style="width: 25px; height: 25px; padding: 1.95px; left: 1205px; top: 35px; position: absolute; background: rgba(250, 237, 0, 0); justify-content: center; align-items: center; display: inline-flex">
+                    <div style="width: 21.09px; height: 21.09px; background: #FAED00"></div>
+                </div>
+                <div style="width: 60px; height: 16px; left: 1235px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">User</div>
+                <div style="width: 60px; height: 16px; left: 1308px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">(0)</div>
+            </div>
+            <div style="width: 107px; height: 26.40px; left: 141px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word"><a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-weight: bold;">Home</a></div>
+            <div style="width: 161px; height: 26.40px; left: 261px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Products</div>
+            <div style="width: 161px; height: 26.40px; left: 435px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">About Us</div>
+            <div style="width: 75px; height: 25px; left: 1344px; top: 38px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">|  Log out</div>
+        </div>
+        <div style="width: 35px; height: 36px; left: 1240px; top: 30px; position: absolute"></div>
+    </div>
 
     @* these links were from the original site
     
@@ -126,9 +138,60 @@
     </div>
     
 </body>
+<div style="width: 1440px; height: 214px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+    <div style="width: 1440px; height: 221px; position: relative">
+        <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 1440px; height: 221px; left: 0px; top: 0px; position: absolute; background: #F0F0F0"></div>
+            <div style="width: 148px; height: 28px; left: 78px; top: 106px; position: absolute">
+                <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                    <div style="width: 11.17px; height: 9.03px; left: 9.03px; top: 9.94px; position: absolute; background: #F3070A"></div>
+                </div>
+                <div style="width: 28px; height: 28px; left: 40px; top: 0px; position: absolute">
+                    <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: #F3070A; border-radius: 9999px"></div>
+                    <div style="width: 6.32px; height: 12.17px; left: 10.84px; top: 8.13px; position: absolute; background: white"></div>
+                </div>
+                <div style="width: 28px; height: 28px; left: 80px; top: 0px; position: absolute">
+                    <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                    <div style="width: 13.55px; height: 13.55px; left: 7.23px; top: 7.23px; position: absolute">
+                        <div style="width: 13.55px; height: 13.55px; left: 0px; top: 0px; position: absolute; background: #F3070A"></div>
+                        <div style="width: 6.96px; height: 6.96px; left: 3.30px; top: 3.30px; position: absolute; background: #F3070A"></div>
+                        <div style="width: 1.63px; height: 1.63px; left: 9.58px; top: 2.35px; position: absolute; background: #F3070A"></div>
+                    </div>
+                </div>
+                <div style="width: 28px; height: 28px; left: 120px; top: 0px; position: absolute">
+                    <div style="width: 28px; height: 28px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px; border: 1px rgba(0, 0, 0, 0.20) solid"></div>
+                    <div style="width: 12.96px; height: 12.65px; left: 8.13px; top: 7.23px; position: absolute; background: #F3070A"></div>
+                </div>
+            </div>
+            <div style="width: 1239.14px; height: 0px; left: 77.50px; top: 182.74px; position: absolute; border: 1px rgba(159, 50, 71, 0.10) solid"></div>
+        </div>
+        <div style="width: 1239px; height: 154px; left: 65px; top: 21px; position: absolute; justify-content: space-between; align-items: flex-start; display: inline-flex">
+            <div style="color: rgba(161, 66, 67, 0.69); font-size: 16px; font-family: Rubik; font-weight: 400; word-wrap: break-word">                    BRICKWELL<br />                    Join Our Lego™ Family: Where Every Builder is Celebrated.</div>
+            <div style="height: 42px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 35px; display: inline-flex">
+                <div></div>
+            </div>
+            <div style="height: 220px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">FAQ</div>
+                <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Account<br /><br />Manage Deliveries<br /><br /></div>
+            </div>
+            <div style="width: 149px; color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Orders<br /><br />Payments</div>
+            <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 26px; display: inline-flex">
+                <div style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px; word-wrap: break-word">Resources</div>
+                <div style="color: rgba(161.06, 65.90, 67.11, 0.59); font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 19px; word-wrap: break-word">Lego Website<br /><br /></div>
+            </div>
+        </div>
+    </div>
+    <img style="width: 69px; height: 73px; border-radius: 24px" src="https://via.placeholder.com/69x73" />
+    <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+    <div style="width: 1440px; height: 38px; background: #E3000B"></div>
+    <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word"><a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white">Privacy Policy</a></div>
+    <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word"><a asp-area="" asp-controller="Home" asp-action="About" class="text-white">About Us</a></div>
+    <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
+</div>
 
-<footer class="border-top footer text-white" style="background-color: black; position: absolute; bottom: 0; width: 100%;">
-    <div class="container">
+    @* <footer class="border-top footer text-white" style="background-color: black; position: absolute; bottom: 0; width: 100%;">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <p>Join Our Lego™ Family: Where Every Builder is Celebrated.</p>
@@ -146,7 +209,7 @@
                     <ul class="list-unstyled">
                     <li><a href="https://www.lego.com" class="text-white">Lego Website</a></li>
 @*                         <li><a href="#" class="text-white">FAQ</a></li>
- *@                        <!-- Add more resources as needed -->
+ @*                       <!-- Add more resources as needed -->
                     </ul>
                 </div>
             </div>
@@ -154,7 +217,7 @@
                 <p style="margin-bottom:0">Brickwell &copy; 2024, All Rights Reserved</p>
             </div>           
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
