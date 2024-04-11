@@ -12,13 +12,24 @@
         <!-- Product iteration -->
         @foreach (var item in Model.Products)
         {
+           
             <div style="display: flex; align-items: center; border-radius: 5px; border: 3px #F0F0F0 solid; margin-bottom: 20px;">
                 <img style="width: 252px; height: 256px;" src="@item.img_link" />
                 <div style="flex-grow: 1; padding: 20px;">
                     <h3 style="color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700;">@item.name</h3>
-                    <p style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">Quantity: at item.Quantity</p>
+                    <div style="display: flex; align-items: center;">
+                        <p style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">Quantity: </p>
+                        @* have to make the clicking of the icon actually work *@
+                        <button style="background: none; border: none;" onclick="decrementQuantity()">
+                            <i class="fas fa-minus-circle" style="color: #A14243; font-size: 18px;"></i>
+                        </button>
+                        <p id="quantity" style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">at item.Quantity</p>
+                        <button style="background: none; border: none;" onclick="incrementQuantity()">
+                            <i class="fas fa-plus-circle" style="color: #A14243; font-size: 18px;"></i>
+                        </button>
+                    </div>
                     <p style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700;">$@item.price</p>
-                    <button style="background: #F0F0F0; border: none; border-radius: 5px; padding: 10px; color: #A14243; font-size: 16px; font-family: Rubik; font-weight: 400;">Remove From Cart</button>
+                    <button style="background: #F0F0F0; border: none; border-radius: 5px; padding: 10px; color: #A14243; font-size: 16px; font-family: Rubik; font-weight: 400;">Remove</button>
                 </div>
             </div>
         }
@@ -32,7 +43,7 @@
         <!-- Total -->
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 40px;">
             <h2 style="color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; margin-right: 20px;">Total: $@(Math.Round(Model.Products.Sum(p => p.price) * 1.07, 2))</h2>
-            <button style="background: #FFAD33; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;">Proceed to Checkout</button>
+            <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;">Proceed to Checkout</button>
         </div>
     </div>
 }

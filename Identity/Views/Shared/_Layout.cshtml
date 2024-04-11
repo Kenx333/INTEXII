@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/lib//font-awesome/css/all.min.css" />
 
 </head>
-<body style="min-height: 100vh; display: flex; flex-direction: column">
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: black;">
             <div class="container-fluid">
@@ -119,37 +119,38 @@
         </nav>
     </header>
     
-    <div class="container col-9">
+    <div class="container col-9" style="flex-grow: 1; margin-bottom:0">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 </body>
 
-    <footer class="border-top footer text-white" style="background-color: black; margin-top: auto;">
-        <div class="container">
+<footer class="border-top footer text-white" style="background-color: black; position: absolute; bottom: 0; width: 100%;">
+    <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <p>Join Our Lego™ Family: Where Every Builder is Celebrated.</p>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">About Us</a></li>
-                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About" class="text-white">About Us</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white">Privacy Policy</a></li>
+
 
                         <!-- Add more links as needed -->
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Lego Website</a></li>
-                        <li><a href="#" class="text-white">FAQ</a></li>
-                        <!-- Add more resources as needed -->
+                    <li><a href="https://www.lego.com" class="text-white">Lego Website</a></li>
+@*                         <li><a href="#" class="text-white">FAQ</a></li>
+ *@                        <!-- Add more resources as needed -->
                     </ul>
                 </div>
             </div>
             <div class="row">
-                <p>Brickwell &copy; 2024, All Rights Reserved</p>
+                <p style="margin-bottom:0">Brickwell &copy; 2024, All Rights Reserved</p>
             </div>           
         </div>
     </footer>
