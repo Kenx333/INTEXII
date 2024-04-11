@@ -1,5 +1,156 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "Admin_Order List";
+    Layout = "_AdminLayout";
 }
+@model IEnumerable<Order>
+
+<h1 class="title" style="color: #A14243; ">
+    All Orders
+</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@Html.Raw(TempData["SuccessMessage"])");
+        };
+    </script>
+}
+
+<div class="container-fluid container" style="left :auto">
+    <div class="row">
+
+        <div class="col-1 ">
+        </div>
+        <div class="col-2 ">
+            <div class="filterBy">
+                <div class="filterBy-icon"></div>
+                Filter by
+            </div>
+        </div>
+        <div class="col-2 ">
+
+            <div class="sortBy">
+                <div class="sortBy-icon"></div>
+                Sort By: Price Low to High
+            </div>
+        </div>
+        <div class="col-5 ">
+        </div>
+        <div class="col-1 ">
+            <div class="addButton">
+                Add
+            </div>
+        </div>
+        <div class="col-1 ">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+<table>
+    <theard class="fw-bold"> 
+        <tr>
+            
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Date</th>
+            <th>Day of Week</th>
+            <th>Time</th>
+            <th>Bank</th>
+            <th>Type of Card</th>
+            <th>Entry Mode</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Country</th>
+            <th>Shipping Address</th>
+            <th>Fraud</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </theard>
+    @foreach (var x in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@x.transaction_ID</td>
+                <td>@x.customer_ID</td>
+                <td>@x.date</td>
+                <td>@x.day_of_week</td>
+                <td>@x.time</td>
+                <td>@x.bank</td>
+                <td>@x.type_of_card</td>
+                <td>@x.entry_mode</td>
+                <td>@x.amount</td>
+                <td>>@x.type_of_transaction</td>
+                <td>>@x.country_of_transaction</td>
+                <td>@x.shipping_address</td>
+                <td>>@x.fraud</td>
+                <td>
+                    <a class="btn btn-info" asp-controller="Admin" asp-action="EditOrder" asp-route-id="@x.transaction_ID"  class="delete-button" 
+                    style="border-radius: 5px;
+                    border: 1px solid #EAEAEA;
+                    background: #F0F0F0;">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteOrder" asp-route-id="@x.transaction_ID" class="delete-button" style="color: white">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    }
+</table>
+</div>
+
+    <style>
+        .admin-page {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .addButton,
+        .filterBy,
+        .sortBy {
+            border-radius: 5px;
+            border: 1px solid #EAEAEA;
+            background: #F0F0F0;
+            color: #A14243;
+            font-family: 'Rubik', sans-serif;
+            position: relative; /* No need for absolute positioning */
+        }
+
+        .addButton {
+            align-self: flex-end; /* Align to the right */
+            padding: 0.5em 1em; /* Use em units for padding */
+        }
+
+        .title {
+            font-size: 3em; /* em units for font sizes */
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin: 1em 0; /* Add margin for spacing */
+        }
+
+        .filterBy,
+        .sortBy {
+            display: flex;
+            align-items: center;
+            padding: 0.25em 0.5em;
+            margin-top: 1em;
+        }
+
+        .filterBy-icon,
+        .sortBy-icon {
+            background: #A14243;
+            margin-right: 0.5em;
+        }
+
+        .container{
+        width: 100%; /* Adjust this as needed to fit your page layout */
+        max-width: 1200px; /* Maximum width of the container */
+        margin: auto; /* Center the container */
+        }
+
+    </style>
+    <link rel="stylesheet" href="\Identity\wwwroot\css\site.css" />

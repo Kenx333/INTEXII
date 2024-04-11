@@ -31,7 +31,7 @@
             <br />
             <form method="post" asp-page="/ProductEdit">
                 <input type="hidden" asp-for="@Model.product_ID" />
-                <button type="submit" class="delete-button" style="                  border-radius: 5px;
+                <button asp-controller="Admin" asp-action="EditProduct" asp-route-id="@Model.product_ID"  type="submit" class="delete-button" style="                  border-radius: 5px;
                     border: 1px solid #EAEAEA;
                     background: #F0F0F0;">
                     Edit
@@ -41,8 +41,19 @@
             <br><br />
             <form method="post" asp-page="/ProductDelete">
                 <input type="hidden" asp-for="@Model.product_ID" />
-                <button type="submit" class="delete-button" style="color: #A14243;">Delete</button>
+                <button asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@Model.product_ID" type="submit" class="delete-button" style="color: #A14243;" onclick="confirmDelete(@Model.product_ID)">Delete</button>
             </form>
+@*             <script type="text/javascript">
+                function confirmDelete(productId) {
+                    if (confirm('Are you sure you want to delete this product?')) {
+                        // Submit form or redirect to delete action
+                        window.location.href = 'AdminController/DeleteProduct' + productId;
+                    }
+                    else { 
+                        window.location.href = 'AdminController/ProductList' + productId;
+                    }
+                }
+            </script> *@
         </div>
         <div class="col-1 sm">
         </div>

@@ -1,8 +1,95 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "Admin_Customer List";
+    Layout = "_AdminLayout";
 }
+@model IEnumerable<Customer>
+
+<h1 class="title" style="color: #A14243; ">
+    All Customers
+</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@Html.Raw(TempData["SuccessMessage"])");
+        };
+    </script>
+}
+<div class="container-fluid container" style="left :auto">
+    <div class="row">
+
+        <div class="col-1 ">
+        </div>
+        <div class="col-2 ">
+            <div class="filterBy">
+                <div class="filterBy-icon"></div>
+                Filter by
+            </div>
+        </div>
+        <div class="col-2 ">
+
+            <div class="sortBy">
+                <div class="sortBy-icon"></div>
+                Sort By: Price Low to High
+            </div>
+        </div>
+        <div class="col-5 ">
+        </div>
+        <div class="col-1 ">
+            <div class="addButton">
+                Add
+            </div>
+        </div>
+        <div class="col-1 ">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table>
+        <theard class="fw-bold">
+            <tr>
+
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birth Date</th>
+                <th>Country of Residence</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </theard>
+        @foreach (var x in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@x.customer_ID</td>
+                    <td>@x.first_name </td>
+                    <td>@x.last_name </td>
+                    <td>@x.gender </td>
+                    <td>@x.age </td>
+                    <td>@x.birth_date </td>
+                    <td>@x.country_of_residence </td>
+                    <td>
+                        <a class="btn btn-info" asp-controller="Admin" asp-action="EditCustomer" asp-route-id="@x.customer_ID" class="delete-button"
+                           style="border-radius: 5px;
+                    border: 1px solid #EAEAEA;
+                    background: #F0F0F0;">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteCustomer" asp-route-id="@x.customer_ID" class="delete-button" style="color: white;">Delete</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+
+@* 
 
 <div class="AdminCustomerListPage" style="width: 1421px; height: 953px; position: relative; background: white">
 
@@ -112,3 +199,11 @@
     </div>
   
 </div>
+ *@
+ <style>
+     .container{
+        width: 100%; /* Adjust this as needed to fit your page layout */
+        max-width: 1200px; /* Maximum width of the container */
+        margin: auto; /* Center the container */
+     }
+ </style>

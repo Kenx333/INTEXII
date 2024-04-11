@@ -1,7 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "Admin_ Delete Product";
+    Layout = "_AdminLayout";
 }
 @model Product 
 
@@ -49,3 +48,11 @@
 
     </form>
 </div>
+
+<h2>Confirm Deletion</h2>
+<h3>You want to delete the movie: "@Model.name (@Model.year)" by "@Model.category" </h3>
+<form method="post">
+    <input type="hidden" asp-for="product_ID" />
+    <button type="submit" style="background-color: dimgrey;border: 2px solid dimgray;">Delete</button>
+    <a class="btn btn-info" asp-controller="Admin" asp-action="ProductList" style="background-color: white;border: 2px solid black;">Cancel</a>
+</form>

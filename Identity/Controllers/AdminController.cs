@@ -52,23 +52,59 @@ namespace INTEXII.Controllers
 
             return View(p);
         }
+
+        [HttpGet]
         public IActionResult OrderList()
         {
-            return View();
-        }
+            var form = _productRepository.Orders
+                .OrderBy(x => x.transaction_ID).ToList().Take(100);
 
+            return View(form);
+        }
         public IActionResult CustomerList()
         {
-            return View();
+            var form = _productRepository.Customers
+                .OrderBy(x => x.customer_ID).ToList().Take(100);
+            return View(form);
+        }
+
+        [HttpGet]
+        public IActionResult AddProduct()
+        {
+            var product = _productRepository.Products
+                .OrderBy(x => x.product_ID)
+                .ToList();
+
+            return View("AddProduct", new Models.Product());
+        }
+
+        [HttpPost]
+        public IActionResult AddProduct(Product newProduct)
+        {
+            if (ModelState.IsValid)
+            {
+                _productRepository.AddProduct(newProduct);
+
+
+                TempData["SuccessMessage"] = "Product added successfully!";
+                return RedirectToAction("ProductList");
+            }
+            else
+            //invalid - return the form with the data the user entered
+            {
+                var product = _productRepository.Products.OrderBy(x => x.product_ID).ToList();
+                return View(newProduct);
+            }
+
         }
 
         [HttpGet]
         public IActionResult EditProduct(int id)
         {
-            var taskToEdit = _productRepository.Products
-                .Single(t => t.product_ID == id);
+            var updateRecord = _productRepository.Products
+                .Single(x => x.product_ID == id);
 
-            return View("AddProduct", taskToEdit);
+            return View("AddProduct", updateRecord);
         }
 
         [HttpPost]
@@ -90,15 +126,22 @@ namespace INTEXII.Controllers
             }
         }
 
-
-        [HttpPost]
+        [HttpGet]
         public IActionResult DeleteProduct(int id)
         {
-            var deleteRecord = _productRepository.Products
+            var taskToDelete = _productRepository.Products
                 .Single(x => x.product_ID == id);
-            _productRepository.RemoveProduct(deleteRecord);
-            return View("ProductList");
+            return View("DeleteProduct",taskToDelete);
         }
+
+        [HttpPost]
+        public IActionResult DeleteProduct(Models.Product taskToDelete)
+        {
+            _productRepository.RemoveProduct(taskToDelete);
+
+            return RedirectToAction("ProductList");
+        }
+
 
 
         public IActionResult Create() => View();

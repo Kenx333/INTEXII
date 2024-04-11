@@ -7,6 +7,16 @@
 <h1 class="title" style="color: #A14243; ">
     All Products
 </h1>
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@Html.Raw(TempData["SuccessMessage"])");
+        };
+    </script>
+}
 <div class="admin-page">
 
 
@@ -69,9 +79,11 @@
                 <div class="col-5 ">
                 </div>
                 <div class="col-1 ">
-                <div class="addButton">
+                <a asp-controller="Admin" asp-action="AddProduct">
+                <div class="addButton" >
                         Add
                 </div>
+                </a>
                  </div>
             <div class="col-1 ">
             </div>
@@ -86,6 +98,8 @@
 
         }
     </div>
+
+
     @*Pagination *@
     <div class="row">
         <div asp-model="@Model.PaginationInfo" asp-action="ProductList" page-classes-enable="true" page-class="btn"
