@@ -2,182 +2,42 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
-<h1>Shopping Cart</h1>
+@model INTEXII.Models.ViewModels.ShoppingCartViewModel
 
-@*  @if (Model.CartItems.Count > 0)
- {
-    <table class="table">
-        <!-- Table headers -->
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Table body -->
-            @foreach (var item in Model.CartItems)
-            {
-                <tr>
-                    <!-- Product details -->
-                    <td>@item.Product.Name</td>
-                    <td>@item.Product.Price</td>
-                    <td>@item.Quantity</td>
-                    <td>@(item.Product.Price * item.Quantity)</td>
-                    <!-- Remove button -->
-                    <td>
-                        <form asp-action="RemoveFromCart" asp-controller="Cart" method="post">
-                            <input type="hidden" name="productId" value="@item.Product.Id" />
-                            <button type="submit" class="btn btn-danger">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <!-- Total -->
-    <div class="text-right">
-        <strong>Total: @Model.Total</strong>
-    </div>
-    <!-- Proceed to checkout button -->
-    <div class="text-center mt-3">
-        <a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">Proceed to Checkout</a>
+@if (Model.Products.Count() > 0)
+{
+    <div style="width: 100%; max-width: 1421px; background: white; margin: 0 auto;">
+        <h1 style="color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; margin: 60px 0;">Shopping Cart</h1>
+
+        <!-- Product iteration -->
+        @foreach (var item in Model.Products)
+        {
+            <div style="display: flex; align-items: center; border-radius: 5px; border: 3px #F0F0F0 solid; margin-bottom: 20px;">
+                <img style="width: 252px; height: 256px;" src="@item.img_link" />
+                <div style="flex-grow: 1; padding: 20px;">
+                    <h3 style="color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700;">@item.name</h3>
+                    <p style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">Quantity: at item.Quantity</p>
+                    <p style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700;">$@item.price</p>
+                    <button style="background: #F0F0F0; border: none; border-radius: 5px; padding: 10px; color: #A14243; font-size: 16px; font-family: Rubik; font-weight: 400;">Remove From Cart</button>
+                </div>
+            </div>
+        }
+
+        <!-- Subtotal -->
+        <div style="background: #F0F0F0; border-radius: 5px; border: 3px #F0F0F0 solid; padding: 20px; margin-bottom: 20px;">
+            <p style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">(Tax: $@(Math.Round(Model.Products.Sum(p => p.price) * 0.07, 2)))<br />(Shipping: $0)</p>
+            <h3 style="color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700;">Subtotal: $@(Math.Round(Model.Products.Sum(p => p.price), 2))</h3>
+        </div>
+
+        <!-- Total -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 40px;">
+            <h2 style="color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; margin-right: 20px;">Total: $@(Math.Round(Model.Products.Sum(p => p.price) * 1.07, 2))</h2>
+            <button style="background: #FFAD33; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;">Proceed to Checkout</button>
+        </div>
     </div>
 }
 else
 {
     <!-- Empty cart message -->
     <p>Your shopping cart is empty.</p>
-} *@
-<div style="width: 1421px; height: 1772px; position: relative; background: white">
-    <div style="width: 1440px; height: 214px; left: 0px; top: 1558px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 1440px; height: 214px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-            <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
-            <div style="width: 1440px; height: 38px; background: #E3000B"></div>
-            <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
-            <div style="width: 171px; height: 18px; color: white; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Privacy Policy  I  About Us</div>
-            <div style="width: 276px; height: 11.08px; text-align: right; color: white; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Bidbuyy © 2024, All Rights Reserved</div>
-        </div>
-    </div>
-    <div style="width: 327px; height: 328px; left: 64px; top: 639px; position: absolute">
-        <img style="width: 252px; height: 256px; left: 38px; top: 11px; position: absolute" src="https://via.placeholder.com/252x256" />
-        <div style="width: 327px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    </div>
-    <div style="width: 327px; height: 328px; left: 64px; top: 967px; position: absolute">
-        <img style="width: 260px; height: 256px; left: 34px; top: 11px; position: absolute" src="https://via.placeholder.com/260x256" />
-        <div style="width: 327px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    </div>
-    <div style="width: 327px; height: 328px; left: 64px; top: 311px; position: absolute">
-        <img style="width: 272px; height: 256px; left: 26px; top: 11px; position: absolute" src="https://via.placeholder.com/272x256" />
-        <div style="width: 327px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    </div>
-    <div style="left: 68px; top: 173px; position: absolute; color: #A14243; font-size: 50px; font-family: Inter; font-weight: 700; word-wrap: break-word">Shopping Cart</div>
-    <div style="width: 327px; height: 328px; left: 64px; top: 311px; position: absolute">
-        <img style="width: 272px; height: 256px; left: 26px; top: 11px; position: absolute" src="https://via.placeholder.com/272x256" />
-        <div style="width: 327px; height: 328px; left: 0px; top: 0px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    </div>
-    <div style="width: 981px; height: 328px; left: 391px; top: 311px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    <div style="width: 335px; height: 105px; left: 1059px; top: 1384px; position: absolute">
-        <div style="width: 187.26px; height: 83.46px; padding: 10px; left: 147.74px; top: 21.54px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">(Tax: $22)<br />(Shipping: $0)</div>
-        </div>
-        <div style="width: 224.85px; height: 31.08px; left: 0px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">SubTotal: </div>
-        <div style="width: 108.17px; height: 35.43px; left: -0px; top: 44.59px; position: absolute; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
-        </div>
-    </div>
-    <div style="width: 62.97px; height: 39.48px; left: 1067px; top: 1571px; position: absolute; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
-        <div style="color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 142</div>
-    </div>
-    <div style="width: 981px; height: 328px; left: 391px; top: 639px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    <div style="width: 137.87px; height: 115px; left: 432px; top: 671px; position: absolute">
-        <img style="width: 18px; height: 31px; left: 76px; top: 81px; position: absolute" src="https://via.placeholder.com/18x31" />
-        <div style="left: 102px; top: 89px; position: absolute; color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">1</div>
-        <div style="width: 137.87px; height: 115px; left: 0px; top: 0px; position: absolute">
-            <div style="width: 76px; height: 36px; padding: 10px; left: 0px; top: 79px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Quantity: </div>
-            </div>
-            <div style="width: 128.87px; height: 24.56px; left: 9px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Product name</div>
-            <div style="width: 62px; height: 28px; left: 9px; top: 35.25px; position: absolute; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
-            </div>
-        </div>
-        <img style="width: 19px; height: 25px; left: 116px; top: 84px; position: absolute" src="https://via.placeholder.com/19x25" />
-    </div>
-    <div style="width: 981px; height: 328px; left: 391px; top: 967px; position: absolute; border-radius: 5px; border: 3px #F0F0F0 solid"></div>
-    <div style="width: 137.87px; height: 115px; left: 427px; top: 999px; position: absolute">
-        <img style="width: 18px; height: 31px; left: 76px; top: 81px; position: absolute" src="https://via.placeholder.com/18x31" />
-        <div style="left: 102px; top: 89px; position: absolute; color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">1</div>
-        <div style="width: 137.87px; height: 115px; left: 0px; top: 0px; position: absolute">
-            <div style="width: 76px; height: 36px; padding: 10px; left: 0px; top: 79px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Quantity: </div>
-            </div>
-            <div style="width: 128.87px; height: 24.56px; left: 9px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Product name</div>
-            <div style="width: 62px; height: 28px; left: 9px; top: 35.25px; position: absolute; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
-            </div>
-        </div>
-        <img style="width: 19px; height: 25px; left: 116px; top: 84px; position: absolute" src="https://via.placeholder.com/19x25" />
-    </div>
-    <div style="width: 121.40px; height: 41.24px; left: 68px; top: 243px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-    <div style="width: 210.53px; height: 41.24px; left: 221px; top: 243px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-    <div style="left: 121.10px; top: 257.12px; position: absolute; color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">Filter by</div>
-    <div style="width: 24px; height: 24px; padding-left: 4px; padding-right: 4px; padding-top: 3px; padding-bottom: 3px; left: 87.18px; top: 251.62px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 16px; height: 18px; background: #A14243"></div>
-    </div>
-    <div style="left: 264.28px; top: 257.12px; position: absolute"><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 500; word-wrap: break-word">Sort By:  </span><span style="color: #A14243; font-size: 10.96px; font-family: Rubik; font-weight: 300; word-wrap: break-word">Price Low to High</span></div>
-    <div style="width: 24px; height: 24px; padding-left: 4px; padding-right: 4px; padding-top: 3px; padding-bottom: 3px; left: 230.35px; top: 251.62px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 16px; height: 18px; background: #A14243"></div>
-    </div>
-    <div style="width: 14px; height: 14px; padding-left: 2.33px; padding-right: 2.33px; padding-top: 4.08px; padding-bottom: 4.08px; left: 424.18px; top: 271.12px; position: absolute; transform: rotate(-180deg); transform-origin: 0 0; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 9.33px; height: 5.83px; background: black"></div>
-    </div>
-    <div style="width: 1440px; height: 96px; left: 0px; top: 0px; position: absolute">
-        <div style="width: 1451px; height: 96px; left: 0px; top: 0px; position: absolute; background: #E3000B"></div>
-        <img style="width: 94px; height: 94px; left: 17px; top: 0px; position: absolute" src="https://via.placeholder.com/94x94" />
-        <div style="width: 22px; height: 22px; left: 1281px; top: 36px; position: absolute; background: #FAED00"></div>
-        <div style="width: 25px; height: 25px; padding: 1.95px; left: 1205px; top: 35px; position: absolute; background: rgba(250, 237, 0, 0); justify-content: center; align-items: center; display: inline-flex">
-            <div style="width: 21.09px; height: 21.09px; background: #FAED00"></div>
-        </div>
-        <div style="width: 60px; height: 16px; left: 1235px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">User</div>
-        <div style="width: 60px; height: 16px; left: 1308px; top: 40px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">(0)</div>
-        <div style="width: 107px; height: 26.40px; left: 141px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Home</div>
-        <div style="width: 161px; height: 26.40px; left: 261px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Products</div>
-        <div style="width: 161px; height: 26.40px; left: 435px; top: 32px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">About Us</div>
-        <div style="width: 75px; height: 25px; left: 1344px; top: 38px; position: absolute; color: white; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">|  Log out</div>
-    </div>
-    <div style="width: 1349.01px; height: 0px; left: 45px; top: 1362.96px; position: absolute; border: 3px #F0F0F0 solid"></div>
-    <div style="width: 130.88px; height: 34.63px; left: 1059px; top: 1506px; position: absolute; color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Total: </div>
-    <div style="width: 336px; height: 45px; padding-left: 48px; padding-right: 48px; padding-top: 10px; padding-bottom: 10px; left: 1049px; top: 1641px; position: absolute; background: #FFAD33; border-radius: 4px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-        <div style="color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500; line-height: 24px; word-wrap: break-word">Check out</div>
-    </div>
-    <div style="width: 69px; height: 41px; left: 1267px; top: 1071px; position: absolute">
-        <div style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div style="left: 4px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</div>
-    </div>
-    <div style="width: 69px; height: 41px; left: 1263px; top: 758px; position: absolute">
-        <div style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div style="left: 4px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</div>
-    </div>
-    <div style="width: 69px; height: 41px; left: 1264px; top: 415px; position: absolute">
-        <div style="width: 69px; height: 41px; left: 0px; top: 0px; position: absolute; background: #F0F0F0; border-radius: 5px; border: 0.73px #EAEAEA solid"></div>
-        <div style="left: 4px; top: 9px; position: absolute; text-align: center; color: #A14243; font-size: 20px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Delete</div>
-    </div>
-    <div style="width: 137.87px; height: 115px; left: 427px; top: 333px; position: absolute">
-        <img style="width: 18px; height: 31px; left: 76px; top: 81px; position: absolute" src="https://via.placeholder.com/18x31" />
-        <div style="left: 102px; top: 89px; position: absolute; color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">1</div>
-        <div style="width: 137.87px; height: 115px; left: 0px; top: 0px; position: absolute">
-            <div style="width: 76px; height: 36px; padding: 10px; left: 0px; top: 79px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Quantity: </div>
-            </div>
-            <div style="width: 128.87px; height: 24.56px; left: 9px; top: 0px; position: absolute; color: #9F3247; font-size: 20px; font-family: Roboto; font-weight: 700; word-wrap: break-word">Product name</div>
-            <div style="width: 62px; height: 28px; left: 9px; top: 35.25px; position: absolute; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex">
-                <div style="color: #9F3247; font-size: 24px; font-family: Roboto; font-weight: 700; word-wrap: break-word">$ 120</div>
-            </div>
-        </div>
-        <img style="width: 19px; height: 25px; left: 116px; top: 84px; position: absolute" src="https://via.placeholder.com/19x25" />
-    </div>
-</div>
+}
