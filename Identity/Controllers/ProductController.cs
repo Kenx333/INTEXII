@@ -115,6 +115,7 @@ namespace INTEXII.Controllers
             return View(product); // Assumes you have a view named "ProductDetails.cshtml" to display the product details.
         }
 
+        
 
     }
 }
