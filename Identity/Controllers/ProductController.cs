@@ -20,10 +20,10 @@ namespace INTEXII.Controllers
         //{
         //    return View();
         //}
-        public IActionResult Checkout()
-        {
-            return View();
-        }
+        //public IActionResult Checkout()
+        //{
+        //    return View();
+        //}
 
          
 
@@ -63,6 +63,29 @@ namespace INTEXII.Controllers
         {
             int pageSize = 5;
             var products = new ShoppingCartViewModel
+            {
+                Products = _repo.Products
+                .Where(x => x.category == productCategory || productCategory == null)
+                .OrderBy(x => x.name)
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
+
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrentPage = pageNum,
+                    ItemsPerPage = pageSize,
+                    TotalItems = productCategory == null ? _repo.Products.Count() : _repo.Products.Where(x => x.category == productCategory).Count()
+                },
+                CurrentProductCategory = productCategory
+            };
+
+            return View(products);
+        }
+
+        public IActionResult Checkout(int pageNum, string? productCategory)
+        {
+            int pageSize = 5;
+            var products = new CheckoutViewModel
             {
                 Products = _repo.Products
                 .Where(x => x.category == productCategory || productCategory == null)
