@@ -9,5 +9,6 @@ namespace INTEXII.Models
         public DbSet<Customer> Customers { get; set;}
         public DbSet<LineItem> LineItems { get; set;}
         public DbSet<Order> Orders { get; set;}
+        public DbSet<Userbase> Userbased { get; set; }
     }
 }

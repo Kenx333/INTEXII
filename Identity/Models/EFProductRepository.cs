@@ -13,6 +13,9 @@ namespace INTEXII.Models
         public IQueryable<Order> Orders => _context.Orders;
         public IQueryable<Customer> Customers => _context.Customers;
         public IQueryable<LineItem> LineItems => _context.LineItems;
+        public IQueryable<Userbase> Userbase => _context.Userbased;
+
+        public IQueryable<Userbase> Userbased => throw new NotImplementedException();
 
         public void AddProduct(Product product)
         {
