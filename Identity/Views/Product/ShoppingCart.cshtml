@@ -23,7 +23,8 @@
                         <button style="background: none; border: none;" onclick="decrementQuantity()">
                             <i class="fas fa-minus-circle" style="color: #A14243; font-size: 18px;"></i>
                         </button>
-                        <p id="quantity" style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">at item.Quantity</p>
+@*                         This needs an actual quantity
+ *@                        <p id="quantity" style="color: #9F3247; font-size: 14px; font-family: Roboto; font-weight: 400;">1</p>
                         <button style="background: none; border: none;" onclick="incrementQuantity()">
                             <i class="fas fa-plus-circle" style="color: #A14243; font-size: 18px;"></i>
                         </button>
@@ -43,7 +44,7 @@
         <!-- Total -->
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 40px;">
             <h2 style="color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; margin-right: 20px;">Total: $@(Math.Round(Model.Products.Sum(p => p.price) * 1.07, 2))</h2>
-            <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;">Proceed to Checkout</button>
+            <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;" asp-area="" asp-controller="Product" asp-action="Checkout">Proceed to Checkout</button>
         </div>
     </div>
 }

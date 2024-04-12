@@ -95,20 +95,27 @@
     <div style="display: flex; align-items: center;">
         <img src="/img/logo.png" alt="Logo" style="width: 94px; height: 94px; margin-right: 20px;">
         <ul style="list-style: none; display: flex; gap: 20px;">
-            <li><a href="@Url.Action("Index", "Home")" style="color: white; font-size: 16px; font-weight: bold;">Home</a></li>
-            <li><a href="@Url.Action("ProductList", "Product")" style="color: white; font-size: 16px; font-weight: bold;">Products</a></li>
-            <li><a href="@Url.Action("About", "Home")" style="color: white; font-size: 16px; font-weight: bold;">About Us</a></li>
+            <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Product" asp-action="ProductList">Products</a></li>
+            <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+            <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
         </ul>
     </div>
     <nav>
-        <ul style="list-style: none; display: flex; gap: 20px;">
+        <ul style="list-style: none; display: flex; gap: 20px;align-items: center;">
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="ShoppingCart" style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;">
+                    Cart
+                </a>
+            </li>
             <li>
                 <div style="color: white; font-size: 16px; font-weight: bold;">User (0)</div>
             </li>
-            <li><a href="#" style="color: white; font-size: 16px; font-weight: bold;">Log out</a></li>
+            <li><a href="#" style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;">Log out</a></li>
         </ul>
     </nav>
 </header>
+
 
 
 
@@ -194,10 +201,10 @@
             <h3 style="color: #F3070A; font-size: 16px; font-family: Roboto; font-weight: 500; text-transform: uppercase; line-height: 18px; letter-spacing: 3px;">Links</h3>
 
             <ul style="list-style: none; padding: 0;">
-                <li><a href="#" style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;">Home</a></li>
-                <li><a href="#" style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;">Products</a></li>
-                <li><a href="#" style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;">About Us</a></li>
-                <li><a href="#" style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;">Privacy</a></li>
+                <li><a style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold; " asp-area="" asp-controller="Product" asp-action="ProductList">Products</a></li>
+                <li><a  style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;" asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                <li><a  style="color: rgba(161.06, 65.90, 67.11, 0.59); text-decoration: none; font-weight: bold;" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
             </ul>
         </div>
         <div style="width: 30%;">
