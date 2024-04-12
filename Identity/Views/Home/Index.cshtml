@@ -2,7 +2,7 @@
     ViewData["Title"] = "Authentication";
 }
 
-@model List<INTEXII.Models.Product>
+@model List<INTEXII.Models.ProductContext>
 
 
 
@@ -13,10 +13,11 @@
 <div style="left: 57px; top: 310px; position: absolute; color: #0F1E2C; font-size: 25px; font-family: Rubik; font-weight: 600; word-wrap: break-word">Top picks for you</div>
 <div style="left: 310.59px; top: 316.50px; position: absolute; color: #666666; font-size: 14px; font-family: Rubik; font-weight: 400; word-wrap: break-word">Sales up to 70% off in the selected items</div>
 
-<div class="row" style="margin-top: 300px;">
+a
+<div class="row" style="margin-top: 600px;">
     @if (Model != null)
     {
-        foreach (var product in Model.Take(3))
+        foreach (var product in Model.ProductContext )
         {
             <div class="col mb-4" style="text-align: center;">
                 <a style="text-decoration: none; color: #333; font-weight: bold;" href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
@@ -26,7 +27,6 @@
         }
     }
 </div>
-
 @await Html.PartialAsync("_CookieNotification")
 
 @if (User?.Identity?.IsAuthenticated ?? false)
