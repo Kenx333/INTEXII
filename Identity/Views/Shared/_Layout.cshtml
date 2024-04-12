@@ -91,23 +91,25 @@
         <div style="width: 35px; height: 36px; left: 1240px; top: 30px; position: absolute"></div>
     </div> *@
 
-    <header style="background-color: #E3000B; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 88px;">
-        <div style="display: flex; align-items: center;">
-            <img src="/img/logo.png" alt="Logo" style="width: 94px; height: 94px; margin-right: 20px;">
-            <ul style="list-style: none; display: flex; gap: 20px;">
-                <li><a href="@Url.Action("Index", "Home")" style="color: white; font-size: 16px; font-weight: bold;">Home</a></li>
-                <li><a href="@Url.Action("ProductList", "Product")" style="color: white; font-size: 16px; font-weight: bold;">Products</a></li>
-                <li><a href="@Url.Action("About", "Home")" style="color: white; font-size: 16px; font-weight: bold;">About Us</a></li>
-            </ul>
-        </div>
-        <nav>
-            <ul style="list-style: none; display: flex; gap: 20px;">
-              
-            <div style="color: white; font-size: 16px; font-weight: bold;">User (0)</div>
-                <li><a href="#" style="color: white; font-size: 16px; font-weight: bold;">Log out</a></li>
-            </ul>
-        </nav>
-    </header>
+<header style="background-color: #E3000B; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 95px; width: 100%;">
+    <div style="display: flex; align-items: center;">
+        <img src="/img/logo.png" alt="Logo" style="width: 94px; height: 94px; margin-right: 20px;">
+        <ul style="list-style: none; display: flex; gap: 20px;">
+            <li><a href="@Url.Action("Index", "Home")" style="color: white; font-size: 16px; font-weight: bold;">Home</a></li>
+            <li><a href="@Url.Action("ProductList", "Product")" style="color: white; font-size: 16px; font-weight: bold;">Products</a></li>
+            <li><a href="@Url.Action("About", "Home")" style="color: white; font-size: 16px; font-weight: bold;">About Us</a></li>
+        </ul>
+    </div>
+    <nav>
+        <ul style="list-style: none; display: flex; gap: 20px;">
+            <li>
+                <div style="color: white; font-size: 16px; font-weight: bold;">User (0)</div>
+            </li>
+            <li><a href="#" style="color: white; font-size: 16px; font-weight: bold;">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+
 
 
     @* these links were from the original site
@@ -148,15 +150,15 @@
             </div>
         </nav>
     </header> *@
-<body style="display: flex; flex-direction: column; min-height: 100vh; width: 100%; margin: 0;!important;">
 
-    <div class="container col-9" style="flex-grow: 1; margin-bottom:0 ; margin-right:0; margin-left:0;">
+<body>
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
 </body>
+
 
 @* <footer style="background-color: #F0F0F0; padding: 20px; display: flex; flex-direction: column; align-items: center;">
     <div style="display: flex; align-items: center; margin-bottom: 20px;">
