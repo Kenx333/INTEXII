@@ -2,7 +2,7 @@
     ViewData["Title"] = "Authentication";
 }
 
-@model List<INTEXII.Models.ProductContext>
+@model List<INTEXII.Models.Product>
 
 
 
@@ -17,14 +17,14 @@ a
 <div class="row" style="margin-top: 600px;">
     @if (Model != null)
     {
-        foreach (var product in Model.ProductContext )
+@*         foreach (var product in Model.Product.Task(3))
         {
             <div class="col mb-4" style="text-align: center;">
                 <a style="text-decoration: none; color: #333; font-weight: bold;" href="@Url.Action("ProductDetails", "Product", new { id = product.product_ID })" class="card-link">
                     <partial name="ProductInfoCard" model="product" />
                 </a>
             </div>
-        }
+        } *@
     }
 </div>
 @await Html.PartialAsync("_CookieNotification")
