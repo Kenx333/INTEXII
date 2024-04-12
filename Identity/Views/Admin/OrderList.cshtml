@@ -8,6 +8,49 @@
     All Orders
 </h1>
 
+<style>
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: rgba(0,0,0,.05); /* Add a background color to odd rows */
+    }
+
+    .table-striped > tbody > tr:nth-of-type(even) {
+        background-color: #fff; /* Add a background color to even rows */
+    }
+
+    .table-striped > tbody > tr > td,
+    .table-striped > tbody > tr > th {
+        border: 1px solid #dee2e6; /* Add border to table cells */
+    }
+
+    .table-striped > thead > tr > th {
+        border-bottom-width: 2px; /* Add border to table header */
+    }
+
+    .table-striped {
+        border-collapse: collapse; /* Collapse table borders */
+        width: 100%; /* Set table width to 100% */
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .full-width-table {
+        margin-left: -50px;
+        margin-right: 0;
+    }
+
+    .table {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .prediction-cell {
+        background-color: #e0f2f1;
+    }
+</style>
+
+
 @if (TempData["SuccessMessage"] != null)
 {
     <script type="text/javascript">
@@ -16,7 +59,7 @@
         };
     </script>
 }
-
+@* 
 <div class="container-fluid container" style="left :auto">
     <div class="row">
 
@@ -46,10 +89,11 @@
         </div>
     </div>
 </div>
-
-<div class="row">
-<table>
-    <theard class="fw-bold"> 
+ *@
+@* <div class="row" >
+ *@
+<table class="table table-bordered table-striped">
+    <thead class="fw-bold"> 
         <tr>
             
             <th>ID</th>
@@ -68,7 +112,7 @@
             <th></th>
             <th></th>
         </tr>
-    </theard>
+    </thead>
     @foreach (var x in Model)
     {
         <tbody>
@@ -100,8 +144,8 @@
         </tbody>
     }
 </table>
-</div>
-
+@* </div>
+ *@
     <style>
         .admin-page {
             display: flex;

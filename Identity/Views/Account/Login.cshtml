@@ -33,7 +33,8 @@
  *@        </div>
         <div class="text-danger" asp-validation-summary="All"></div>
         <form asp-action="Login" method="post">
-            <input type="hidden" asp-for="ReturnUrl" />
+@*             asp-for="ReturnUrl"
+ *@            <input type="hidden"  />
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" />

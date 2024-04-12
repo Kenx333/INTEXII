@@ -20,11 +20,13 @@ namespace INTEXII.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        //string returnUrl
+        public IActionResult Login()
         {
-            Login login = new Login();
-            login.ReturnUrl = returnUrl;
-            return View(login);
+            //Login login = new Login();
+            //login.ReturnUrl = returnUrl;
+            //login
+            return View();
         }
 
         [HttpPost]
