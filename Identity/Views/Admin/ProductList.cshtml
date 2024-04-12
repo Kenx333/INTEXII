@@ -65,8 +65,22 @@
                 </div>
                 <div class="col-2 ">
                     <div class="filterBy">
-                        <div class="filterBy-icon"></div>
-                        Filter by
+                        <div class="filterBy-icon">
+                        <select asp-for="CurrentProductCategory">
+                            <option value="">Filter by: Category</option>
+                            @if (ViewBag.Categories != null)
+                            {
+                                foreach (Category c in ViewBag.Categories)
+                                {
+                                    <option value="@c.category">@c.CategoryName</option>
+                                }
+                            }
+                            else
+                            {
+                                <option>No Category</option>
+                            }
+                        </select>
+                        </div>
                     </div>
                 </div>
                 <div class="col-2 ">
