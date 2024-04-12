@@ -18,7 +18,7 @@ namespace INTEXII.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult AdminView()
         {
             return View();  
         }
