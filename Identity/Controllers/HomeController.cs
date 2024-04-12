@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using INTEXII.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 
 namespace INTEXII.Controllers
 {
@@ -16,16 +18,23 @@ namespace INTEXII.Controllers
         //    userManager = userMgr;
         //}
 
-        private readonly IProductRepository _productRepository;
+        private readonly IProductRepository _repo;
+        private readonly InferenceSession _session;
+        private readonly string _onnxModelPath;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, IHostEnvironment hostEnvironment)
         {
-            _productRepository = productRepository;
+            _repo = productRepository;
+
+            _onnxModelPath = System.IO.Path.Combine(hostEnvironment.ContentRootPath, "fraud_model.onnx");
+
+            //initialize the InferenceSession
+            _session = new InferenceSession(_onnxModelPath);
         }
 
         public IActionResult Index()
         {
-            var products = _productRepository.Products.Take(3).ToList();
+            var products = _repo.Products.Take(3).ToList();
             return View(products);
         }
         //[Authorize]
@@ -61,7 +70,6 @@ namespace INTEXII.Controllers
         {
             return View();
         }
-
 
     }
 }

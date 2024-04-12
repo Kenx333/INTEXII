@@ -48,7 +48,7 @@
             </div>
         </div> *@
 
-
+@* 
 <div class="AdminHomePage" style="width: 1421px; height: 1402px; position: relative; background: white">
     <div class="AdminManageButton" style="width: 308.09px; height: 42px; left: 51px; top: 1255px; position: absolute">
         <a asp-area="" asp-controller="Admin" asp-action="OrderList">
@@ -127,7 +127,7 @@
             <div class="NumberOfPart0" style="width: 205.58px; height: 17.09px; left: 0px; top: 84.12px; position: absolute; color: #212427; font-size: 14px; font-family: Roboto; font-weight: 400; word-wrap: break-word">Number of Part: 0</div>
         </div>
     </div>
-</div>
+</div> *@
 
 
 @*         <div class="container">
@@ -153,4 +153,31 @@
         </div> *@
 
 
+<div>
+    <a asp-area="" asp-controller="Admin" asp-action="ReviewOrders" class="btn">Fraud</a>
+</div>
+<style>
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background-color: #007bff;
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
 
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        }
+</style>

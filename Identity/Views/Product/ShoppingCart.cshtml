@@ -44,7 +44,9 @@
         <!-- Total -->
         <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 40px;">
             <h2 style="color: #9F3247; font-size: 36px; font-family: Roboto; font-weight: 700; margin-right: 20px;">Total: $@(Math.Round(Model.Products.Sum(p => p.price) * 1.07, 2))</h2>
-            <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;" asp-area="" asp-controller="Product" asp-action="Checkout">Proceed to Checkout</button>
+@*             <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;" asp-area="" asp-controller="Product" asp-action="Checkout">Proceed to Checkout</button>
+ *@            <button style="background: #9F3247; border: none; border-radius: 4px; padding: 10px 30px; color: #FAFAFA; font-size: 16px; font-family: Poppins; font-weight: 500;"><a style="color: white; font-size: 16px; text-decoration: none;" asp-area="" asp-controller="Product" asp-action="Checkout">Proceed to Checkout</a></button>
+
         </div>
     </div>
 }
