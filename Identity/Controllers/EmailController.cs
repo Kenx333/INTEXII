@@ -6,8 +6,8 @@ namespace INTEXII.Controllers
 {
     public class EmailController : Controller
     {
-        private UserManager<AppUser> userManager;
-        public EmailController(UserManager<AppUser> usrMgr)
+        private UserManager<Customer> userManager;
+        public EmailController(UserManager<Customer> usrMgr)
         {
             userManager = usrMgr;
         }

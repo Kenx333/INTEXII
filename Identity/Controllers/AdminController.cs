@@ -8,10 +8,10 @@ namespace INTEXII.Controllers
 {
     public class AdminController : Controller
     {
-        private UserManager<AppUser> userManager;
-        private IPasswordHasher<AppUser> passwordHasher;
+        private UserManager<Customer> userManager;
+        private IPasswordHasher<Customer> passwordHasher;
         private IProductRepository _productRepository;
-        public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHash, IProductRepository productRepository)
+        public AdminController(UserManager<Customer> usrMgr, IPasswordHasher<Customer> passwordHash, IProductRepository productRepository)
         {
             userManager = usrMgr;
             passwordHasher = passwordHash;
@@ -151,19 +151,19 @@ namespace INTEXII.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser appUser = new AppUser
+                Customer Customer = new Customer
                 {
                     UserName = user.Name,
                     Email = user.Email,
                     //TwoFactorEnabled = true
                 };
 
-                IdentityResult result = await userManager.CreateAsync(appUser, user.Password);
+                IdentityResult result = await userManager.CreateAsync(Customer, user.Password);
                 
                 // uncomment for email confirmation (link - https://www.yogihosting.com/aspnet-core-identity-email-confirmation/)
                 /*if (result.Succeeded)
                 {
-                    var token = await userManager.GenerateEmailConfirmationTokenAsync(appUser);
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(Customer);
                     var confirmationLink = Url.Action("ConfirmEmail", "Email", new { token, email = user.Email }, Request.Scheme);
                     EmailHelper emailHelper = new EmailHelper();
                     bool emailResponse = emailHelper.SendEmail(user.Email, confirmationLink);
@@ -189,7 +189,7 @@ namespace INTEXII.Controllers
 
         public async Task<IActionResult> Update(string id)
         {
-            AppUser user = await userManager.FindByIdAsync(id);
+            Customer user = await userManager.FindByIdAsync(id);
             if (user != null)
                 return View(user);
             else
@@ -199,7 +199,7 @@ namespace INTEXII.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
-            AppUser user = await userManager.FindByIdAsync(id);
+            Customer user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
                 if (!string.IsNullOrEmpty(email))
@@ -235,7 +235,7 @@ namespace INTEXII.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            AppUser user = await userManager.FindByIdAsync(id);
+            Customer user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
                 IdentityResult result = await userManager.DeleteAsync(user);

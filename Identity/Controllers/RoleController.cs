@@ -8,9 +8,9 @@ namespace INTEXII.Controllers
     public class RoleController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
-        private UserManager<AppUser> userManager;
+        private UserManager<Customer> userManager;
 
-        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<AppUser> userMrg)
+        public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<Customer> userMrg)
         {
             roleManager = roleMgr;
             userManager = userMrg;
@@ -43,9 +43,9 @@ namespace INTEXII.Controllers
         public async Task<IActionResult> Update(string id)
         {
             IdentityRole role = await roleManager.FindByIdAsync(id);
-            List<AppUser> members = new List<AppUser>();
-            List<AppUser> nonMembers = new List<AppUser>();
-            foreach (AppUser user in userManager.Users)
+            List<Customer> members = new List<Customer>();
+            List<Customer> nonMembers = new List<Customer>();
+            foreach (Customer user in userManager.Users)
             {
                 var list = await userManager.IsInRoleAsync(user, role.Name) ? members : nonMembers;
                 list.Add(user);
@@ -66,7 +66,7 @@ namespace INTEXII.Controllers
             {
                 foreach (string userId in model.AddIds ?? new string[] { })
                 {
-                    AppUser user = await userManager.FindByIdAsync(userId);
+                    Customer user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.AddToRoleAsync(user, model.RoleName);
@@ -76,7 +76,7 @@ namespace INTEXII.Controllers
                 }
                 foreach (string userId in model.DeleteIds ?? new string[] { })
                 {
-                    AppUser user = await userManager.FindByIdAsync(userId);
+                    Customer user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.RemoveFromRoleAsync(user, model.RoleName);

@@ -5,7 +5,7 @@ namespace INTEXII.Models
     public class RoleEdit
     {
         public IdentityRole Role { get; set; }
-        public IEnumerable<AppUser> Members { get; set; }
-        public IEnumerable<AppUser> NonMembers { get; set; }
+        public IEnumerable<Customer> Members { get; set; }
+        public IEnumerable<Customer> NonMembers { get; set; }
     }
 }

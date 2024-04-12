@@ -31,8 +31,14 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 builder.Services.AddDbContext<ProductContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:TestingLocalDBConnection"]));
 builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(builder.Configuration["ConnectionStrings:IdentityConnection"]));
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+ //   .AddEntityFrameworkStores<AppIdentityDbContext>();
+
+//builder.Services.AddIdentity<Customer, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+//    .AddEntityFrameworkStores<AppIdentityDbContext>()
+//    .AddDefaultTokenProviders();
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<INTEXIIIdentityDbContext>();
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<Customer, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromHours(10));
 
 builder.Services.ConfigureApplicationCookie(options =>

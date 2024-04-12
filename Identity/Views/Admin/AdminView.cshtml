@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AppUser>
+﻿@model IEnumerable<Customer>
 @{
     ViewData["Title"] = "READ USER";
 }
@@ -14,7 +14,7 @@
 		<th>Update</th>
 		<th>Delete</th>
 	</tr>
-	@foreach (AppUser user in Model)
+	@foreach (Customer user in Model)
 	{
 		<tr>
 			<td>@user.Id</td>

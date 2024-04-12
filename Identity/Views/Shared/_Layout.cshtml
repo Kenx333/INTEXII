@@ -109,10 +109,20 @@
                 </a>
             </li>
             <li>
+          @*   <li class="nav-item">
+               <partial name="_LoginPartial"/>
+
+            </li> *@
                 <div style="color: white; font-size: 16px; font-weight: bold;">User (0)</div>
             </li>
-            <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
-        </ul>
+            <li class="nav-item">
+                <a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+@*             <li><a style="color: white; font-size: 16px; font-weight: bold; text-decoration: none;" asp-area="" asp-controller="Account" asp-action="Login">Log In</a></li>
+ *@        </ul>
     </nav>
 </header>
 

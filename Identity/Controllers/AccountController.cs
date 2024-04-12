@@ -10,22 +10,28 @@ namespace INTEXII.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private UserManager<AppUser> userManager;
-        private SignInManager<AppUser> signInManager;
+        private UserManager<Customer> userManager;
+        private SignInManager<Customer> signInManager;
 
-        public AccountController(UserManager<AppUser> userMgr, SignInManager<AppUser> signinMgr)
+        public AccountController(UserManager<Customer> userMgr, SignInManager<Customer> signinMgr)
         {
             userManager = userMgr;
             signInManager = signinMgr;
         }
 
-        [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+         
+        public    IActionResult Login()
         {
-            Login login = new Login();
-            login.ReturnUrl = returnUrl;
-            return View(login);
+            return View();
         }
+
+        //[AllowAnonymous]
+        //public IActionResult Login(string returnUrl)
+        //{
+        //    Login login = new Login();
+        //    login.ReturnUrl = returnUrl;
+        //    return View(login);
+        //}
 
         [HttpPost]
         [AllowAnonymous]
@@ -34,11 +40,11 @@ namespace INTEXII.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser appUser = await userManager.FindByEmailAsync(login.Email);
-                if (appUser != null)
+                Customer Customer = await userManager.FindByEmailAsync(login.Email);
+                if (Customer != null)
                 {
                     await signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(appUser, login.Password, login.Remember, false);
+                    Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(Customer, login.Password, login.Remember, false);
 
                     if (result.Succeeded)
                         return Redirect(login.ReturnUrl ?? "/");
@@ -46,11 +52,11 @@ namespace INTEXII.Controllers
                     // uncomment Two Factor Authentication https://www.yogihosting.com/aspnet-core-identity-two-factor-authentication/
                     /*if (result.RequiresTwoFactor)
                     {
-                        return RedirectToAction("LoginTwoStep", new { appUser.Email, login.ReturnUrl });
+                        return RedirectToAction("LoginTwoStep", new { Customer.Email, login.ReturnUrl });
                     }*/
 
                     // Uncomment Email confirmation https://www.yogihosting.com/aspnet-core-identity-email-confirmation/
-                    /*bool emailStatus = await userManager.IsEmailConfirmedAsync(appUser);
+                    /*bool emailStatus = await userManager.IsEmailConfirmedAsync(Customer);
                     if (emailStatus == false)
                     {
                         ModelState.AddModelError(nameof(login.Email), "Email is unconfirmed, please confirm it first");
@@ -97,7 +103,7 @@ namespace INTEXII.Controllers
                 return View(userInfo);
             else
             {
-                AppUser user = new AppUser
+                Customer user = new Customer
                 {
                     Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
                     UserName = info.Principal.FindFirst(ClaimTypes.Email).Value

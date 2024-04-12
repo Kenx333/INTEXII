@@ -9,10 +9,10 @@ namespace INTEXII.Controllers
     [Authorize]
     public class ClaimsController : Controller
     {
-        private UserManager<AppUser> userManager;
+        private UserManager<Customer> userManager;
         private IAuthorizationService authService;
 
-        public ClaimsController(UserManager<AppUser> userMgr, IAuthorizationService auth)
+        public ClaimsController(UserManager<Customer> userMgr, IAuthorizationService auth)
         {
             userManager = userMgr;
             authService = auth;
@@ -26,7 +26,7 @@ namespace INTEXII.Controllers
         [ActionName("Create")]
         public async Task<IActionResult> Create_Post(string claimType, string claimValue)
         {
-            AppUser user = await userManager.GetUserAsync(HttpContext.User);
+            Customer user = await userManager.GetUserAsync(HttpContext.User);
             Claim claim = new Claim(claimType, claimValue, ClaimValueTypes.String);
             IdentityResult result = await userManager.AddClaimAsync(user, claim);
 
@@ -40,7 +40,7 @@ namespace INTEXII.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string claimValues)
         {
-            AppUser user = await userManager.GetUserAsync(HttpContext.User);
+            Customer user = await userManager.GetUserAsync(HttpContext.User);
 
             string[] claimValuesArray = claimValues.Split(";");
             string claimType = claimValuesArray[0], claimValue = claimValuesArray[1], claimIssuer = claimValuesArray[2];
